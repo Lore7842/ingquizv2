@@ -201,7 +201,7 @@ const ProfilePage = (props) => {
               </tr>
               <tr>
                 <td>Percentuale risposte giuste date:</td>
-                <td>{total ? Math.round(correct / total) : 0} %</td>
+                <td>{total!=0 ? Math.round(correct / total) : 0} %</td>
               </tr>
             </tbody>
           </table>
