@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div className="nav">
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Home</a>
+            <a href="/home">Dashboard</a>
           </div>
           <div className="sub-menu">
             <div className="icon-box">
@@ -15,10 +16,12 @@ function NavBar() {
               </div>
               <div className="text">
                 <div className="title">
-                  Home <i className="far fa-arrow-right"></i>
+                  Login <i className="far fa-arrow-right"></i>
                 </div>
                 <div className="sub-text">
-                  Torna alla pagina iniziale del sito
+                  <Link to="/" className="menu-item-btn">
+                    Accedi al tuo profilo
+                  </Link>
                 </div>
               </div>
             </div>
@@ -39,7 +42,11 @@ function NavBar() {
                 <div className="title">
                   Fisiologia<i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di fisiologia</div>
+                <div className="sub-text">
+                  <Link to="/Fisiologia" className="menu-item-btn">
+                    Quiz di fisiologia
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="icon-box gb b">
@@ -50,7 +57,11 @@ function NavBar() {
                 <div className="title">
                   Elettronica <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di elettronica</div>
+                <div className="sub-text">
+                  <Link to="/Elettronica" className="menu-item-btn">
+                    Quiz di Elettronica
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="icon-box gb c">
@@ -61,7 +72,11 @@ function NavBar() {
                 <div className="title">
                   Fisica II <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di fisica II</div>
+                <div className="sub-text">
+                  <Link to="/Fisica2" className="menu-item-btn">
+                    Quiz di fisica II
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="icon-box gb d">
@@ -72,7 +87,11 @@ function NavBar() {
                 <div className="title">
                   Chimica <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di chimica</div>
+                <div className="sub-text">
+                  <Link to="/Chimica" className="menu-item-btn">
+                    Quiz di chimica
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="icon-box gb e">
@@ -83,7 +102,11 @@ function NavBar() {
                 <div className="title">
                   Analisi II <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di analisi II</div>
+                <div className="sub-text">
+                  <Link to="/Analisi2" className="menu-item-btn">
+                    Quiz di analisi II
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="icon-box gb f">
@@ -95,7 +118,11 @@ function NavBar() {
                   Metodi matematici
                   <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Quiz di metodi matematici</div>
+                <div className="sub-text">
+                  <Link to="/Metodi" className="menu-item-btn">
+                    Quiz di Metodi matematici
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -112,7 +139,7 @@ function NavBar() {
               <div className="text">
                 <div className="title">Instagram</div>
                 <Link className="sub-text l" to="/about">
-                Seguici su instagram
+                  Seguici su instagram
                 </Link>
               </div>
             </div>
@@ -125,22 +152,24 @@ function NavBar() {
           <div className="sub-menu">
             <div className="icon-box">
               <div className="icon">
-                <i className="far fa-lightbulb"></i>
+                <i className="far fa-cogs"></i>
               </div>
               <div className="text">
-                <div className="title">Domande</div>
-                <div className="sub-text">Consigliaci nuovi domande o quiz</div>
+                <div className="title">Bug o consigli</div>
+                <Link to="/contact-us" className="sub-text">
+                  Contattaci
+                </Link>
               </div>
             </div>
             <div className="icon-box">
               <div className="icon">
-                <i className="fas fa-cogs"></i>
+                <i className="far fa-lightbulb"></i>
               </div>
               <div className="text">
-                <div className="title">Bug</div>
-                <div className="sub-text">
-                  Riportaci gli errori che hai notato.
-                </div>
+                <div className="title">Domande</div>
+                <Link to="/questions" className="sub-text">
+                  Consigliaci nuove domande
+                </Link>
               </div>
             </div>
 

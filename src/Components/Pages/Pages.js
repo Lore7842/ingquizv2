@@ -1,15 +1,139 @@
-import { React, useState } from "react";
+import { React, useState, useReducer } from "react";
 import { Menu } from "C:\\Users\\lollo\\quiz\\src\\Components\\Menu\\Menu.js";
 import { NavBar } from "C:\\Users\\lollo\\quiz\\src\\Components\\NavBar\\NavBar.js";
 import { Questions } from "C:\\Users\\lollo\\quiz\\src\\Components\\Pages\\fisioBack.js";
+import { Results } from "../Results/Results";
+import "./fisio.css";
+import firebase from "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\base.js";
+import DashBoard from "../DashBoard/DashBoard";
+import { navBar } from "../NavBar/NavBar";
 
-const history = [];
+let history = [];
+let historyNum = [];
 
-const HomePage = () => {
+const initialState = {
+  email: "",
+  num: 0,
+  numD: Math.floor(Math.random() * (Questions.length - 1)),
+  score: 0,
+  attempts: 0,
+  show: false,
+};
+function reducer(state, action) {
+  let selector = document.querySelector(".answers-indicator");
+  let domanda;
+  switch (action.type) {
+    case "increment":
+      console.log(state.email);
+      domanda = Math.floor(Math.random() * (Questions.length - 1));
+      return {
+        email: action.email,
+        num: state.num + 1,
+        numD: domanda,
+        score: state.score,
+        attempts: state.attempts,
+        show: false,
+      };
+    case "decrement":
+      domanda = Math.floor(Math.random() * (Questions.length - 1));
+      return {
+        email: state.email,
+        num: state.num - 1,
+        numD: history[state.num - 1],
+        score: state.score,
+        attempts: state.attempts,
+        show: false,
+      };
+    case "home":
+      firebase
+        .firestore()
+        .collection("registrati")
+        .where("email", "==", state.email)
+        .get()
+        .then((querySnaphot) => {
+          querySnaphot.forEach((doc) => {
+            doc.update({
+              correct_answers: firebase.firestore.FieldValue.increment(
+                state.score
+              ),
+            });
+          });
+        });
+      return {
+        email: state.email,
+        num: 1,
+        numD: Math.floor(Math.random() * (Questions.length - 1)),
+        score: 0,
+        attempts: state.attempts,
+        show: false,
+      };
+    case "restart":
+      domanda = Math.floor(Math.random() * (Questions.length - 1));
+      return {
+        email: state.email,
+        num: 1,
+        numD: domanda,
+        score: 0,
+        attempts: 0,
+        show: false,
+      };
+    case "show":
+      for (let i = 0; i < 30; i++) {
+        if (history[i] === 1) {
+          selector.children.item(i).classList.add("correct");
+        } else {
+          selector.children.item(i).classList.add("wrong");
+        }
+      }
+      return {
+        email: state.email,
+        num: state.num,
+        numD: Math.floor(Math.random() * (Questions.length - 1)),
+        score: state.score,
+        attempts: state.attempts,
+        show: false,
+      };
+    case "details":
+      firebase
+        .firestore()
+        .collection("registrati")
+        .where("email", "==", state.email)
+        .get()
+        .then((querySnaphot) => {
+          querySnaphot.forEach((doc) => {
+            let docRef = firebase
+              .firestore()
+              .collection("registrati")
+              .doc(doc.id);
+            docRef.update({
+              correct_answers: firebase.firestore.FieldValue.increment(
+                state.score
+              ),
+              wrong: firebase.firestore.FieldValue.increment(30 - state.score),
+              total: firebase.firestore.FieldValue.increment(30),
+            });
+          });
+        });
+      return {
+        email: state.email,
+        num: state.num,
+        numD: Math.floor(Math.random() * (Questions.length - 1)),
+        score: state.score,
+        attempts: state.attempts,
+        show: true,
+      };
+
+    default:
+      throw new Error();
+  }
+}
+
+const HomePage = (props) => {
   const [input, setInput] = useState("");
+  const currentUser = props.user;
   return (
     <div>
-      <NavBar />
+      <NavBar userProp={currentUser} />
       <Menu inputProp={input} setInputProp={setInput} />
     </div>
   );
@@ -22,263 +146,296 @@ const AboutPage = () => {
     </div>
   );
 };
-//FISIOLOGIA
-const Fisiologia = () => {
-  const [num, setNum] = useState(0);
-  const [score, setScore] = useState(0);
-  const clickHandler = (isCorrect) => {
-    setNum(num + 1);
-    console.log(num);
 
-    if (isCorrect) {
-      setScore(score + 1);
-      history.push(1);
-      console.log(history);
-      console.log("score " + score);
-    } else {
-      history.push(-1);
-    }
-  };
+const ProfilePage = (props) => {
+  const [quiz, setQuiz] = useState(0);
+  const [correct, setCorrect] = useState(0);
+  const [wrong, setWrong] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const currentUser = props.user;
+  let num_quiz = 0;
+  let total_answers = 0;
+  let correct_answers = 0;
+  let wrong_answers = 0;
+  firebase
+    .firestore()
+    .collection("registrati")
+    .where("email", "==", currentUser.email)
+    .get()
+    .then((querySnaphot) => {
+      querySnaphot.forEach((doc) => {
+        correct_answers = doc.data().correct_answers;
+        num_quiz = doc.data().num_quiz;
+        wrong_answers = doc.data().wrong;
+        total_answers = doc.data().total;
+      });
+      console.log(currentUser.email);
+      setQuiz(num_quiz);
+      setCorrect(correct_answers);
+      setWrong(wrong_answers);
+      setTotal(total_answers);
+      setLoading(false);
+    })
+    .catch((e) => alert(e.message));
 
-  const Start = (num) => {
-    setNum(num + 1);
-    console.log("sono entrato in start");
-    num == 0 ? console.log("vaff") : console.log("ciao");
-  };
-
-  const toHome = () => {
-    setNum(0);
-  };
-
-  const Successiva = () => {
-    setNum(num + 1);
-    console.log("ciao");
-    console.log(num);
-  };
-
-  const domande = [
-    {
-      text: "quanti anni hai?",
-      answers: [
-        {
-          text: 12,
-          isCorrect: false,
-        },
-        {
-          text: 20,
-          isCorrect: true,
-        },
-      ],
-    },
-    {
-      text: "domanda 2?",
-      answers: [
-        {
-          text: "SI",
-          isCorrect: true,
-        },
-        {
-          text: "NO",
-          isCorrect: false,
-        },
-      ],
-    },
-  ];
   return (
-    <div className="fisio">
-      {num === 0 ? (
-        <div className="home-box custom-box">
-          <h3>Istruzioni per il quiz:</h3>
-          <p>
-            Il quiz è composto da <span className="total-question">15</span>{" "}
-            domande
-          </p>
-          <button type="button" className="btn" onClick={() => Start(num)}>
-            Inizia
-          </button>
-        </div>
-      ) : (num <= 1 && num > 0) ? (
-        <div className="quiz-box custom-box">
-          <div className="question-number">Domanda numero {num}</div>
-          <div className="question-text">prima domanda</div>
-          <div className="option-container">
-            <div className="option">a</div>
-            <div className="option">b</div>
-            <div className="option">c</div>
-            <div className="option">d</div>
-          </div>
-          <div className="next-button">
-            <button
-              type="button"
-              className="btn"
-              onClick={() => clickHandler(true)}
-            >
-              Prossima
-            </button>
-          </div>
-          <div className="answers-indicator">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      ) : num > 1 ? (
-        <div className="result-box custom-box">
-          <h1>Risultati del quiz</h1>
+    <div className="profilo">
+      <NavBar />
+      {!loading ? (
+        <div className="stats-container">
+          <h1>Statistiche quiz</h1>
           <table>
-            <tr>
-              <td>Numero di domande</td>
-              <td>
-                <span className="total-question"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>Tentativi</td>
-              <td>
-                <span className="total-attempt"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>Corrette</td>
-              <td>
-                <span className="total-correct"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>Sbagliate</td>
-              <td>
-                <span className="total-wrong"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>Percentuale</td>
-              <td>
-                <span className="percentage"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>Punteggio totale</td>
-              <td>
-                <span className="total-score"></span>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Numero totale di quiz effettuati </td>
+                <td>{quiz}</td>
+              </tr>
+              <tr>
+                <td>Numero di risposte giuste date:</td>
+                <td>{correct}</td>
+              </tr>
+              <tr>
+                <td>Numero di risposte sbagliate date:</td>
+                <td>{wrong}</td>
+              </tr>
+              <tr>
+                <td>Percentuale risposte giuste date:</td>
+                <td>{Math.round(correct / total)} %</td>
+              </tr>
+            </tbody>
           </table>
-          <button type="button" className="btn">
-            Riprova il quiz
-          </button>
-          <button type="button" className="btn" onClick={toHome()}>
-            Torna alla pagina principale
-          </button>
         </div>
       ) : null}
+      <DashBoard />
     </div>
   );
 };
-// CHIMICA (ORA IN TEST)
-const Chimica = () => {
-  const [score, setScore] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(
-    Math.floor(Math.random() * (Questions.length - 1))
-  );
-  const [questionNumber, setQuestionNumber] = useState(0);
-  const [showScore, setShowScore] = useState(false);
 
-  let voto = Math.round(((60 - 1.5 * (60 - score)) * 35) / 60); //aggiunto da ali attenzione
-  const clickHandler = (Answer, CurrentQuestion) => {
-    //console.log(score);
-    console.log(Questions[CurrentQuestion].id);
-    if (Answer === Questions[CurrentQuestion].TrueOrFalse) {
-      console.log("Giusta");
-      setScore(score + 1);
-    } else {
-      console.log("Sbagliata");
+const Stats = () => {
+  return <div>STATISTICHE</div>;
+};
+//FISIOLOGIA
+const Fisiologia = (props) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const currentUser = props.user;
+  const prox = () => {
+    historyNum.push(state.numD);
+    for (let i = 0; i < 2; i++) {
+      if (
+        document
+          .querySelector(".option-container")
+          .children.item(i)
+          .classList.contains("correct")
+      ) {
+        document
+          .querySelector(".option-container")
+          .children.item(i)
+          .classList.remove("correct");
+      }
     }
-    if (questionNumber < 59) {
-      setCurrentQuestion(Math.floor(Math.random() * Questions.length - 1));
-      setQuestionNumber(questionNumber + 1);
-    } else {
-      setShowScore(true);
+
+    for (let i = 0; i < 2; i++) {
+      if (
+        document
+          .querySelector(".option-container")
+          .children.item(i)
+          .classList.contains("wrong")
+      ) {
+        document
+          .querySelector(".option-container")
+          .children.item(i)
+          .classList.remove("wrong");
+      }
     }
+    dispatch({ type: "increment", email: currentUser.email });
+  };
+
+  const trueOrFalse = (trueOrFalse, index, tF) => {
+    if (index === 0) {
+      history = [];
+      historyNum = [];
+    }
+    if (trueOrFalse === Questions[state.numD]["TrueOrFalse"]) {
+      let el = document.querySelector(".option-container").children;
+      el.item(tF).classList.add("correct");
+      history.push(1);
+      state.score = state.score + 1;
+    } else {
+      let el = document.querySelector(".option-container").children;
+      el.item(tF).classList.add("wrong");
+      history.push(-1);
+    }
+    state.attempts = state.attempts + 1;
+    setTimeout(() => prox(), 550);
   };
 
   return (
-    <div className="App">
-            
-      {showScore === true ? (
-        <div className="score-section">
-                    
+    <div className="quiz-page">
+      {state.show === true ? (
+        <Results
+          history={history}
+          historyD={historyNum}
+          numD={30}
+          dispatch={dispatch}
+        />
+      ) : state.num === 0 ? (
+        <div className="home-box custom-box">
+          <h3>Istruzioni per il quiz:</h3>
           <p>
-                        Hai totalizzato {score} su {60}
-                      
+            Il quiz è composto da <span className="total-questions">30</span>{" "}
+            domande
           </p>
-                    
-          <p>
-            <br />
-                      Il tuo voto sarebbe {voto}
-                      
-          </p>
-                    
-          <p className="promosso-bocciato">
-                        {voto < 18 ? "Ritenta sarai più fortunato :(" : null}
-                      
-          </p>
-                    
-          <p className="full-score">
-                        
-            {voto >= 30 ? "Complimenti! Beccati sto 30 e zitt*!" : null}
-                      
-          </p>
-                  
+          <button
+            type="button"
+            className="bott"
+            onClick={() =>
+              dispatch({ type: "increment", email: currentUser.email })
+            }
+          >
+            Inizia
+          </button>
+        </div>
+      ) : state.num <= 30 ? (
+        <div className="quiz-box custom-box">
+          <div className="question-number">Domanda {state.num}</div>
+          <div className="question-text">{Questions[state.numD]["text"]}</div>
+          <div className="option-container">
+            <div
+              className="option"
+              onClick={() => trueOrFalse(true, state.num - 1, 0)}
+            >
+              Vero
+            </div>
+            <div
+              className="option"
+              onClick={() => trueOrFalse(false, state.num - 1, 1)}
+            >
+              Falso
+            </div>
+          </div>
+          <div className="next-question-btn">
+            <button type="button" className="bott" onClick={prox}>
+              Prossima
+            </button>
+          </div>
+          <div className="terminator"></div>
         </div>
       ) : (
-        <>
-                    
-          <div className="question-section">
-                        
-            <div className="question-count">
-                            <span>Domanda {questionNumber + 1}</span>/{60}
-                          
-            </div>
-                        
-            <div className="question-text">
-                            {Questions[currentQuestion].text}
-                          
-            </div>
-                      
+        <div className="result-box custom-box">
+          <h1>Risultati del quiz</h1>
+          <table>
+            <tbody>
+              <tr>
+                <td>Numero di domande</td>
+                <td>
+                  <span className="total-question">30</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Tentativi</td>
+                <td>
+                  <span className="total-attempt">{state.attempts}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Corrette</td>
+                <td>
+                  <span className="total-correct">{state.score} </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Sbagliate o non date</td>
+                <td>
+                  <span className="total-wrong">{30 - state.score}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Percentuale</td>
+                <td>
+                  <span className="percentage">
+                    {Math.round((state.score / 30) * 100)}%
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>Punteggio totale</td>
+                <td>
+                  <span className="total-score">{state.score}/30</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="answers-indicator">
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
           </div>
-                    
-          <div className="answer-section">
-                        
-            <button onClick={() => clickHandler(true, currentQuestion)}>
-                            <div className="Answer-text"> Vero </div>
-                          
-            </button>
-                        
-            <button
-              className="falseButton"
-              onClick={() => clickHandler(false, currentQuestion)}
-            >
-                    <div className="Answer-text"> Falso </div>
-                          
-            </button>
-                      
-          </div>
-                  
-        </>
+          <button
+            type="button"
+            className="bott"
+            onClick={() => dispatch({ type: "home" })}
+          >
+            Riprova il quiz
+          </button>
+          <button
+            type="button"
+            className="bott"
+            onClick={() => dispatch({ type: "home" })}
+          >
+            Torna alla pagina principale
+          </button>
+          <button
+            type="button"
+            className="bott"
+            onClick={() => dispatch({ type: "show" })}
+          >
+            Mostra i dettagli della domande
+          </button>
+          <button
+            type="button"
+            className="bott"
+            onClick={() => dispatch({ type: "details" })}
+          >
+            Mostra le risposte
+          </button>
+        </div>
       )}
-                 
+    </div>
+  );
+};
+// CHIMICA (NOW IN TEST)
+const Chimica = () => {
+  return (
+    <div className="chimica">
+      <h1>Quiz chimica</h1>
     </div>
   );
 };
@@ -327,4 +484,6 @@ export {
   Fisica2,
   Chimica,
   Metodi,
+  Stats,
+  ProfilePage,
 };

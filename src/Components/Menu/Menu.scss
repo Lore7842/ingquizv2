@@ -1,10 +1,8 @@
-* {
+
+.Menu {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.Menu {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -41,14 +39,17 @@ form {
   font-family: "Open Sans";
 }
 .formSubmit {
-    position :relative;
-    left: 300px;
-    top: 20px;
-    font-family: 'Open Sans';
-    text-transform: none;
-    color: white;
-    text-decoration: none;
-  }
+  position: relative;
+  left: 300px;
+  top: 20px;
+  font-family: "Open Sans";
+  text-transform: none;
+  color: white;
+  text-decoration: none;
+}
+.formSubmit:hover{
+  color: white;
+}
 
 .chosen-value,
 .value-list {
@@ -95,9 +96,11 @@ form {
 }
 
 .value-list {
+  width: 320px;
   list-style: none;
   margin-top: 4rem;
-  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  margin-left: -2rem;
+  
   overflow: hidden;
   max-height: 0;
   transition: 0.3s ease-in-out;

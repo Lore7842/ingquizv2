@@ -3,8 +3,6 @@ import "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\Results.css";
 import firebase from "./base.js";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-
 let el;
 
 function Results(props) {
@@ -16,7 +14,7 @@ function Results(props) {
     el = document.querySelector(".sum-score");
   }, []);
 
-  const ref = firebase.firestore().collection("users");
+  const ref = firebase.firestore().collection("registrati");
 
   function getUsers() {
     setLoading(true);
@@ -30,17 +28,15 @@ function Results(props) {
   }
 
   const UpdateScore = () => {
-    ref.doc("user1").update({ media: 32 });
-    ref
-      .doc("user1")
-      .get()
-      .then((doc) => {
-        setScore(doc.data().media);
-      });
 
-    return (<Link to="/stats" className="btn stats">
-      Guarda le tue statistiche
-    </Link>);
+    return (
+      <div>
+        <Link to="/" className="button stats">
+          Guarda le tue statistiche
+        </Link>
+        <Link to="/home" className="button stats">Ritorna alla home page</Link>
+      </div>
+    );
   };
 
   useEffect(() => {

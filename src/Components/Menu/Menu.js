@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import './Menu.scss';
 function Menu(props) {
   useEffect(() => {
     const inputField = document.querySelector(".chosen-value");

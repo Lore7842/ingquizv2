@@ -75,7 +75,13 @@ nav .menu-text a:hover {
   height: 300px;
   width: calc(var(--menu-width) * 1.5);
 }
-
+.menu-item-btn{
+  text-decoration: none;
+  color: #9ea9af;
+}
+.menu-item-btn:hover{
+  color: rgb(38, 145, 104);
+}
 #sub-menu-container {
   position: absolute;
   z-index: -1;
@@ -248,7 +254,7 @@ nav .menu-item:nth-of-type(4):hover ~ #sub-menu-container #sub-menu-holder {
 .icon-box.gb .icon i:before {
   background: linear-gradient(45deg, #0c86ef, #0cef9b);
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  background-clip: text;
   padding-left: 1px;
 }
 
@@ -281,6 +287,11 @@ nav .menu-item:nth-of-type(4):hover ~ #sub-menu-container #sub-menu-holder {
 .menu-item .icon-box:hover .title,
 .menu-item .icon-box:hover .sub-text {
   color: rgb(89 110 123);
+}
+
+.sub-text{
+  text-decoration: none;
+  color: #9ea9af;
 }
 nav
   .menu-item:nth-of-type(3).highlight:hover
