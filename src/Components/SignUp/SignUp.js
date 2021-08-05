@@ -37,7 +37,7 @@ export default function Signup() {
     }
 
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/");
