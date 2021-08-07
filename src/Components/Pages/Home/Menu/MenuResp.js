@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import './Menu.scss';
-function Menu(props) {
+import "./Menu.scss";
+
+function MenuResp(props) {
   useEffect(() => {
     const inputField = document.querySelector(".chosen-value");
     const dropdown = document.querySelector(".value-list");
@@ -102,4 +103,4 @@ function Menu(props) {
   );
 }
 
-export { Menu };
+export default MenuResp;

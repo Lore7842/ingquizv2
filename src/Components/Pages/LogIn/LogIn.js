@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import "../Pages/ContactUs/ContactUs.css";
+import '../ContactUs/ContactUs.css';
 // import './LogIn.css'
 // Guardare i link e le maiuscole
 export default function Login() {

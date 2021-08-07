@@ -1,15 +1,15 @@
-import { Questions } from "C:\\Users\\lollo\\quiz\\src\\Components\\Pages\\fisioBack.js";
-import "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\Results.css";
+import { Questions } from "../Fisiologia/Fisioback";
+import "./Results.css";
 import firebase from "./base.js";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {useMediaQuery} from 'react-responsive';
 let el;
-
 function Results(props) {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [score, setScore] = useState(0);
-
+  const isSmall = useMediaQuery({query: '(max-width: 768px'});
   useEffect(() => {
     el = document.querySelector(".sum-score");
   }, []);
@@ -28,13 +28,21 @@ function Results(props) {
   }
 
   const UpdateScore = () => {
-
     return (
       <div>
-        <Link to="/" className="button stats">
-          Guarda le tue statistiche
+        {isSmall ? (
+          <Link to="/r" className="button stats">
+            Guarda le tue statistiche
+          </Link>
+        ) : (
+          <Link to="/" className="button stats">
+            Guarda le tue statistiche
+          </Link>
+        )}
+
+        <Link to="/home" className="button stats">
+          Ritorna alla home page
         </Link>
-        <Link to="/home" className="button stats">Ritorna alla home page</Link>
       </div>
     );
   };
@@ -44,13 +52,13 @@ function Results(props) {
   }, []);
 
   if (loading) {
-    return <div>LOADING</div>;
+    return <div style={{ textAlign: "center" }}>LOADING</div>;
   }
   return (
     <div className="Results">
       {props.historyD.map((value, index) => {
         return (
-          <div className="result-box">
+          <div className="result-box" key={index}>
             <div className="info-result">Domanda {index + 1}</div>
             {Questions[value]["text"]}
             {console.log(index)}

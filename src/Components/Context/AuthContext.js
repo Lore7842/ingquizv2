@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../Results/base";
+import { auth } from "../Pages/Results/base";
 
 const AuthContext = React.createContext();
 

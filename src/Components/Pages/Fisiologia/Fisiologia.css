@@ -6,7 +6,7 @@
   background: linear-gradient(45deg, #102eff, #d2379b);
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   width: 100vw;
   margin: 0;
   font-size: 16px;
@@ -69,6 +69,7 @@
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  text-decoration: none;
 }
 
 .quiz-box .question-number,
@@ -171,12 +172,12 @@
 
 .result-box .answers-indicator div.indicator.correct {
   background-color: green;
-  background-image: url("../Assets/giusta.png");
+  background-image: url("C:\Users\lollo\quiz\src\Components\Assets\giusta.png");
   background-size: cover;
 }
 .result-box .answers-indicator div.indicator.wrong {
   background-color: red;
-  background-image: url("../Assets/cross.png");
+  background-image: url("C:\Users\lollo\quiz\src\Components\Assets\cross.png");
   background-size: cover;
 }
 

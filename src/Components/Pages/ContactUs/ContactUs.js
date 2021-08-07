@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import firebase from "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\base.js";
+import firebase from '../Results/base';
 
 import "./ContactUs.css";
 
@@ -64,4 +64,4 @@ function ContactUs() {
   );
 }
 
-export { ContactUs };
+export default ContactUs ;

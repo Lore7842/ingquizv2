@@ -1,13 +1,9 @@
-import { React, useState, useReducer } from "react";
-import { Menu } from "C:\\Users\\lollo\\quiz\\src\\Components\\Menu\\Menu.js";
-import { NavBar } from "C:\\Users\\lollo\\quiz\\src\\Components\\NavBar\\NavBar.js";
-import { Questions } from "C:\\Users\\lollo\\quiz\\src\\Components\\Pages\\fisioBack.js";
-import { Results } from "../Results/Results";
-import "./fisio.css";
-import firebase from "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\base.js";
-import DashBoard from "../DashBoard/DashBoard";
-import { navBar } from "../NavBar/NavBar";
-
+import {React, useState, useEffect, useReducer } from "react";
+import './Fisiologia.css';
+import {Questions} from './Fisioback';
+import {Results} from '../Results/Results';
+import firebase from '../Results/base';
+import {Link} from 'react-router-dom';
 let history = [];
 let historyNum = [];
 
@@ -45,20 +41,6 @@ function reducer(state, action) {
         show: false,
       };
     case "home":
-      firebase
-        .firestore()
-        .collection("registrati")
-        .where("email", "==", state.email)
-        .get()
-        .then((querySnaphot) => {
-          querySnaphot.forEach((doc) => {
-            doc.update({
-              correct_answers: firebase.firestore.FieldValue.increment(
-                state.score
-              ),
-            });
-          });
-        });
       return {
         email: state.email,
         num: 1,
@@ -100,6 +82,7 @@ function reducer(state, action) {
         .where("email", "==", state.email)
         .get()
         .then((querySnaphot) => {
+          console.log(querySnaphot);
           querySnaphot.forEach((doc) => {
             let docRef = firebase
               .firestore()
@@ -107,11 +90,12 @@ function reducer(state, action) {
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score
+                state.score/2
               ),
-              wrong: firebase.firestore.FieldValue.increment(30 - state.score),
-              total: firebase.firestore.FieldValue.increment(30),
+              wrong: firebase.firestore.FieldValue.increment(15 - state.score/2),
+              total: firebase.firestore.FieldValue.increment(15),
             });
+            console.log(docRef.wrong);
           });
         });
       return {
@@ -128,95 +112,7 @@ function reducer(state, action) {
   }
 }
 
-const HomePage = (props) => {
-  const [input, setInput] = useState("");
-  const currentUser = props.user;
-  return (
-    <div>
-      <NavBar userProp={currentUser} />
-      <Menu inputProp={input} setInputProp={setInput} />
-    </div>
-  );
-};
-
-const AboutPage = () => {
-  return (
-    <div className="aboutPage">
-      <h1>Seguici su Instagram</h1>
-    </div>
-  );
-};
-
-const ProfilePage = (props) => {
-  const [quiz, setQuiz] = useState(0);
-  const [correct, setCorrect] = useState(0);
-  const [wrong, setWrong] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const currentUser = props.user;
-  let num_quiz = 0;
-  let total_answers = 0;
-  let correct_answers = 0;
-  let wrong_answers = 0;
-  firebase
-    .firestore()
-    .collection("registrati")
-    .where("email", "==", currentUser.email)
-    .get()
-    .then((querySnaphot) => {
-      querySnaphot.forEach((doc) => {
-        correct_answers = doc.data().correct_answers;
-        num_quiz = doc.data().num_quiz;
-        wrong_answers = doc.data().wrong;
-        total_answers = doc.data().total;
-      });
-      console.log(currentUser.email);
-      setQuiz(num_quiz);
-      setCorrect(correct_answers);
-      setWrong(wrong_answers);
-      setTotal(total_answers);
-      setLoading(false);
-    })
-    .catch((e) => alert(e.message));
-
-  return (
-    <div className="profilo">
-      <NavBar />
-      {!loading ? (
-        <div className="stats-container">
-          <h1>Statistiche quiz</h1>
-          <table>
-            <tbody>
-              <tr>
-                <td>Numero totale di quiz effettuati </td>
-                <td>{quiz}</td>
-              </tr>
-              <tr>
-                <td>Numero di risposte giuste date:</td>
-                <td>{correct}</td>
-              </tr>
-              <tr>
-                <td>Numero di risposte sbagliate date:</td>
-                <td>{wrong}</td>
-              </tr>
-              <tr>
-                <td>Percentuale risposte giuste date:</td>
-                <td>{total!=0 ? Math.round(correct / total) : 0} %</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ) : null}
-      <DashBoard />
-    </div>
-  );
-};
-
-const Stats = () => {
-  return <div>STATISTICHE</div>;
-};
-//FISIOLOGIA
-const Fisiologia = (props) => {
+function Fisiologia(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const currentUser = props.user;
   const prox = () => {
@@ -405,13 +301,13 @@ const Fisiologia = (props) => {
           >
             Riprova il quiz
           </button>
-          <button
+          <Link to="/home"
             type="button"
             className="bott"
-            onClick={() => dispatch({ type: "home" })}
+            
           >
             Torna alla pagina principale
-          </button>
+          </Link>
           <button
             type="button"
             className="bott"
@@ -430,60 +326,6 @@ const Fisiologia = (props) => {
       )}
     </div>
   );
-};
-// CHIMICA (NOW IN TEST)
-const Chimica = () => {
-  return (
-    <div className="chimica">
-      <h1>Quiz chimica</h1>
-    </div>
-  );
-};
-//ANALISI 2
-const Analisi2 = () => {
-  return (
-    <div className="analisi2">
-      <h1>Quiz analisi II</h1>
-    </div>
-  );
-};
+}
 
-// FISICA 2
-const Fisica2 = () => {
-  return (
-    <div className="fisica2">
-      <h1>Quiz fisica II</h1>
-    </div>
-  );
-};
-
-//ELETTRONICA
-const Elettronica = () => {
-  return (
-    <div className="elettro">
-      <h1>Quiz elettronica</h1>
-    </div>
-  );
-};
-
-//METODI
-const Metodi = () => {
-  return (
-    <div className="metodi">
-      <h1>Quiz metodi</h1>
-    </div>
-  );
-};
-
-export {
-  HomePage,
-  AboutPage,
-  Fisiologia,
-  Analisi2,
-  Elettronica,
-  Fisica2,
-  Chimica,
-  Metodi,
-  Stats,
-  ProfilePage,
-};
+export default Fisiologia;

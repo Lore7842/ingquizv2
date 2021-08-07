@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import firebase from "C:\\Users\\lollo\\quiz\\src\\Components\\Results\\base.js";
-import "../Pages/ContactUs/ContactUs.css";
+import firebase from '../Results/base';
+import "../ContactUs/ContactUs.css";
 
 export default function Signup() {
   const emailRef = useRef();

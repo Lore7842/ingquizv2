@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from "react";
 
 const Questions = [
   {
@@ -1497,889 +1497,889 @@ const Questions = [
     TrueOrFalse: true,
     text: "La fondamentale ritmicità del respiro, per la quale inspirazione ed espirazione si alternano regolarmente può essere alterata da stimoli emozionali",
   },
-  { 
-    id: 301, 
-    TrueOrFalse: false, 
+  {
+    id: 301,
+    TrueOrFalse: false,
     text: "Un aumento della pressione arteriosa sistemica stimola la produzione di renina da parte del rene",
   },
   {
-    id: 302, 
-    TrueOrFalse: true, 
+    id: 302,
+    TrueOrFalse: true,
     text: "un aumento di concentrazione di renina nel sangue porta ad un aumento della concentrazione di Angiotensina II",
   },
   {
-    id: 303, 
-    TrueOrFalse: false, 
+    id: 303,
+    TrueOrFalse: false,
     text: "L'angiotensina II è un potente vasodilatatore ",
   },
-  {   
-    id: 304, 
-    TrueOrFalse: true, 
+  {
+    id: 304,
+    TrueOrFalse: true,
     text: "l'aldosterone controlla a livello renale il riassorbimento di Na e acqua, per questa ragione ha l'effetto di aumentare la volemia",
-  },   
-  {   
-    id: 305, 
-    TrueOrFalse: true, 
+  },
+  {
+    id: 305,
+    TrueOrFalse: true,
     text: "in risposta ad una condizione ipotensiva le concentrazioni di aldosterone e di ormone antidiuretico tendono ad aumentare ",
-  },   
-  {   
-    id: 306, 
-    TrueOrFalse: true, 
+  },
+  {
+    id: 306,
+    TrueOrFalse: true,
     text: "La produzione di urina è rallentata dall'aldosterone",
-  },   
-  {   
-    id: 307, 
-    TrueOrFalse: true, 
+  },
+  {
+    id: 307,
+    TrueOrFalse: true,
     text: "L'ormone antidiuretico aumenta la permeabilità all'acqua in alcuni tratti del tubulo renale",
   },
   {
-    id: 308, 
-    TrueOrFalse: true, 
+    id: 308,
+    TrueOrFalse: true,
     text: "La concentrazione del liquido interstiziale nei reni non è omogenea",
   },
   {
-    id: 309, 
-    TrueOrFalse: false, 
+    id: 309,
+    TrueOrFalse: false,
     text: "Nel glomerulo renale avviene la maggior parte del riassorbimento del glucosio",
   },
   {
-    id: 310, 
-    TrueOrFalse: false, 
+    id: 310,
+    TrueOrFalse: false,
     text: "Nel glomerulo renale la costrizione dell'arteriola afferente ha l'effetto di limitare il flusso di sangue nei capillari ma promuove il processo di filtrazione",
   },
   {
-    id: 311, 
-    TrueOrFalse: true, 
+    id: 311,
+    TrueOrFalse: true,
     text: "Nel glomerulo renale la costrizione dell'arteriola afferente è controllata da segnali paracrini prodotti dalle cellule della macula densa",
   },
   {
-    id: 312, 
-    TrueOrFalse: true, 
+    id: 312,
+    TrueOrFalse: true,
     text: "Nel glomerulo renale le sostanze di piccola dimensione come Na e glucosio si trovano in pari concentrazione nell'ultrafiltrato e nel plasma all'interno dei capillari",
   },
   {
-    id: 313, 
-    TrueOrFalse: false, 
+    id: 313,
+    TrueOrFalse: false,
     text: "Velocità di filtrazione glomerulare Ha un valore di circa 120 ml/s",
   },
   {
-    id: 314, 
-    TrueOrFalse: true, 
+    id: 314,
+    TrueOrFalse: true,
     text: "Velocità di filtrazione glomerulare aumenta se aumenta la pressione all'interno dei capillari glomerulari",
   },
   {
-    id: 315, 
-    TrueOrFalse: true, 
+    id: 315,
+    TrueOrFalse: true,
     text: "Velocità di filtrazione glomerulare si mantiene approssimativamente costante anche se la pressione arteriosa sistemica media aumenta da 100 a 150 mmHg",
   },
   {
-    id: 316, 
-    TrueOrFalse: true, 
+    id: 316,
+    TrueOrFalse: true,
     text: "Velocità di filtrazione glomerulare può essere stimata misurando la clearance plasmatica renale dell'insulina",
   },
   {
-    id: 317, 
-    TrueOrFalse: false, 
+    id: 317,
+    TrueOrFalse: false,
     text: "Velocità di filtrazione glomerulare dipende dal contenuto proteico del filtrato",
   },
   {
-    id: 318, 
-    TrueOrFalse: false, 
+    id: 318,
+    TrueOrFalse: false,
     text: "il glucosio è una sostanza normalmente presente nelle urine in modesta quantità",
   },
   {
-    id: 319, 
-    TrueOrFalse: true, 
+    id: 319,
+    TrueOrFalse: true,
     text: "La maggior parte dell'acqua è riassorbita dall'ultrafiltrato a livello del tubulo contorto prossimale",
   },
   {
-    id: 320, 
-    TrueOrFalse: true, 
+    id: 320,
+    TrueOrFalse: true,
     text: "Il liquido interstiziale è caratterizzato da un'osmolarità più elevate nella zona corticale rispetto alla zona midollare",
   },
   {
-    id: 321, 
-    TrueOrFalse: false, 
+    id: 321,
+    TrueOrFalse: false,
     text: "Un abbassamento della pressione arteriosa sistemica produce a livello renale un aumento della ritenzione idrica",
   },
   {
-    id: 322, 
-    TrueOrFalse: true, 
+    id: 322,
+    TrueOrFalse: true,
     text: "La clearance plasmatica renale di una sostanza rappresenta la quantità di sangue che in un minuto viene completamente depurata da quella sostanza dai due reni ",
   },
   {
-    id: 323, 
-    TrueOrFalse: true, 
+    id: 323,
+    TrueOrFalse: true,
     text: "ORMONE ANTIDIURETICO: la sua secrezione è stimolata da un aumento dell'osmolarità del sangue",
   },
   {
-    id: 324, 
-    TrueOrFalse: false, 
+    id: 324,
+    TrueOrFalse: false,
     text: "ORMONE ANTIDIURETICO: La sua secrezione è inibita da un abbassamento della pressione arteriosa",
   },
   {
-    id: 325, 
-    TrueOrFalse: true, 
+    id: 325,
+    TrueOrFalse: true,
     text: "ORMONE ANTIDIURETICO: Un aumento della sua concentrazione ematica provoca un rallentamento della produzione di urina",
   },
   {
-    id: 326, 
-    TrueOrFalse: false, 
+    id: 326,
+    TrueOrFalse: false,
     text: "ORMONE ANTIDIURETICO: Opera un controllo della diuresi variando la velocità di filtrazione glomerulare",
   },
   {
-    id: 327, 
-    TrueOrFalse: true, 
+    id: 327,
+    TrueOrFalse: true,
     text: "Una condizione di ipercapnia (eccesso di CO2 nel sangue) provoca un’acidosi respiratoria",
   },
   {
-    id: 328, 
-    TrueOrFalse: false, 
+    id: 328,
+    TrueOrFalse: false,
     text: "Una condizione di ipercapnia (eccesso di CO2 nel sangue) stimola attraverso il riflesso barocettivo un aumento della ventilazione",
   },
   {
-    id: 329, 
-    TrueOrFalse: true, 
+    id: 329,
+    TrueOrFalse: true,
     text: "Una condizione di ipercapnia (eccesso di CO2 nel sangue) stimola a livello renale riassorbimento di HCO3- dall'ultrafiltrato",
   },
   {
-    id: 330, 
-    TrueOrFalse: true, 
+    id: 330,
+    TrueOrFalse: true,
     text: "Una condizione di ipercapnia (eccesso di CO2 nel sangue) attiva i chemocettori centralI e periferici",
   },
   {
-    id: 331, 
-    TrueOrFalse: true, 
+    id: 331,
+    TrueOrFalse: true,
     text: "L'insulina è un ormone peptidico che stimola l'ingresso del glucosio nelle cellule di quasi tutti i tessuti dell'organismo",
   },
   {
-    id: 332, 
-    TrueOrFalse: true, 
+    id: 332,
+    TrueOrFalse: true,
     text: "La secrezione di adrenalina da parte della midollare del surrene è controllata dal sistema simpatico",
   },
   {
-    id: 333, 
-    TrueOrFalse: false, 
+    id: 333,
+    TrueOrFalse: false,
     text: "L'ormone antidiuretico regola la diuresi attraverso un controllo della filtrazione glomerulare",
   },
   {
-    id: 334, 
-    TrueOrFalse: false, 
+    id: 334,
+    TrueOrFalse: false,
     text: "La digestione enzimatica delle proteine comincia nella cavità orale",
   },
   {
-    id: 335, 
-    TrueOrFalse: true, 
+    id: 335,
+    TrueOrFalse: true,
     text: "La secrezione acida nello stomaco crea un ambiente necessario per la attivazione di alcuni enzimi digestivi, come ad esempio pepsinogeno attivato in pepsina",
   },
   {
-    id: 336, 
-    TrueOrFalse: false, 
+    id: 336,
+    TrueOrFalse: false,
     text: "L'intestino tenue è costituito dalla sequenza di tre tratti: il digiuno, l'ileo e il crasso",
   },
   {
-    id: 337, 
-    TrueOrFalse: false, 
+    id: 337,
+    TrueOrFalse: false,
     text: "I movimenti peristaltici nell'apparato digerente sono obiettivati al rimescolamento delle sostanze contenute all'interno",
   },
   {
-    id: 338, 
-    TrueOrFalse: true, 
+    id: 338,
+    TrueOrFalse: true,
     text: "L'aldosterone è un ormone che stimola il riassorbimento renale di sodio",
   },
   {
-    id: 339, 
-    TrueOrFalse: true, 
+    id: 339,
+    TrueOrFalse: true,
     text: "Il succo pancreatico è fortemente basico",
   },
   {
-    id: 340, 
-    TrueOrFalse: true, 
+    id: 340,
+    TrueOrFalse: true,
     text: "L'insulina è un ormone ipoglicemizzante",
   },
   {
-    id: 341, 
-    TrueOrFalse: true, 
+    id: 341,
+    TrueOrFalse: true,
     text: "Gli ormoni pancreatici controllano la disponibilità di glucosio nel sangue",
   },
   {
-    id: 342, 
-    TrueOrFalse: true, 
+    id: 342,
+    TrueOrFalse: true,
     text: "La secrezione degli ormoni pancreatici è basata su un meccanismo a feedback negativo",
   },
   {
-    id: 343, 
-    TrueOrFalse: false, 
+    id: 343,
+    TrueOrFalse: false,
     text: "Il glucagone riduce il contenuto di glucosio nel sangue",
   },
   {
-    id: 344, 
-    TrueOrFalse: false, 
+    id: 344,
+    TrueOrFalse: false,
     text: "La produzione di insulina si mantiene mediamente costante per tutto l'arco della giornata",
   },
   {
-    id: 345, 
-    TrueOrFalse: true, 
+    id: 345,
+    TrueOrFalse: true,
     text: "IL SISTEMA SIMPATICO media la reazione di attacco o fuga",
   },
   {
-    id: 346, 
-    TrueOrFalse: true, 
+    id: 346,
+    TrueOrFalse: true,
     text: "IL SISTEMA SIMPATICO innerva anche l'apparato digerente",
   },
   {
-    id: 347, 
-    TrueOrFalse: false, 
+    id: 347,
+    TrueOrFalse: false,
     text: "IL SISTEMA SIMPATICO non innerva i vasi sanguigni",
   },
   {
-    id: 348, 
-    TrueOrFalse: false, 
+    id: 348,
+    TrueOrFalse: false,
     text: "IL SISTEMA SIMPATICO rilascia acetilcolina a livello degli effettori ",
   },
   {
-    id: 349, 
-    TrueOrFalse: false, 
+    id: 349,
+    TrueOrFalse: false,
     text: "IL SISTEMA SIMPATICO stimola la secrezione di adrenalina da parte dell'ipofisi",
   },
   {
-    id: 350, 
-    TrueOrFalse: true, 
+    id: 350,
+    TrueOrFalse: true,
     text: "nel sistema nervoso centrale ci sono sia neuroni che cellule gliali",
   },
   {
-    id: 351, 
-    TrueOrFalse: false, 
+    id: 351,
+    TrueOrFalse: false,
     text: "l'aldosterone è prodotto dalla midollare del surrene ",
   },
   {
-    id: 352, 
-    TrueOrFalse: false, 
+    id: 352,
+    TrueOrFalse: false,
     text: "l'angiotensina II è secreta dalla corticale surrenale",
   },
   {
-    id: 353, 
-    TrueOrFalse: true, 
+    id: 353,
+    TrueOrFalse: true,
     text: "la liberazione di adrenalina è stimolata dal sistema nervoso simpatico",
   },
   {
-    id: 354, 
-    TrueOrFalse: false, 
+    id: 354,
+    TrueOrFalse: false,
     text: "i processi digestivi sono stimolati dal sistema simpatico",
   },
   {
-    id: 355, 
-    TrueOrFalse: true, 
+    id: 355,
+    TrueOrFalse: true,
     text: "il pancreas ha funzione endocrina",
   },
   {
-    id: 356, 
-    TrueOrFalse: false, 
+    id: 356,
+    TrueOrFalse: false,
     text: "La pressione alveolare varia nella respirazione tranquilla tra +1 e -1 cmH2O",
   },
   {
-    id: 357, 
-    TrueOrFalse: false, 
+    id: 357,
+    TrueOrFalse: false,
     text: "Durante un'espirazione tranquilla la pressione pleurica è leggermente positiva",
   },
   {
-    id: 358, 
-    TrueOrFalse: false, 
+    id: 358,
+    TrueOrFalse: false,
     text: "Un normale atto espiratorio non richiede la contrazione dei muscoli espiratori",
   },
   {
-    id: 359, 
-    TrueOrFalse: true, 
+    id: 359,
+    TrueOrFalse: true,
     text: "Nel pneumotorace si verifica l'ingresso di aria nello spazio pleurico",
   },
   {
-    id: 360, 
-    TrueOrFalse: false, 
+    id: 360,
+    TrueOrFalse: false,
     text: "La presenza di surfattante nel film liquido alveolare ne abbassa la tensione superficiale con il risultato di diminuire la compliance polmonare",
   },
   {
-    id: 361, 
-    TrueOrFalse: true, 
+    id: 361,
+    TrueOrFalse: true,
     text: "Un maggior riempimento ventricolare (aumento del volume telediastolico) aumenta la forza di contrazione ventricolare",
   },
   {
-    id: 362, 
-    TrueOrFalse: true, 
+    id: 362,
+    TrueOrFalse: true,
     text: "un aumento delle resistenze periferiche aumenta la pressione arteriosa",
   },
   {
-    id: 363, 
-    TrueOrFalse: true, 
+    id: 363,
+    TrueOrFalse: true,
     text: "un aumento della pressione arteriosa può indurre in via riflessa un aumento della frequenza cardiaca",
   },
   {
-    id: 364, 
-    TrueOrFalse: false, 
+    id: 364,
+    TrueOrFalse: false,
     text: "Una riduzione della pressione arteriosa può indurre in via riflessa un aumento della diuresi",
   },
   {
-    id: 365, 
-    TrueOrFalse: true, 
+    id: 365,
+    TrueOrFalse: true,
     text: "Un aumento della concentrazione osmotica del sangue può indurre in via riflessa un aumento della concentrazione ematica di ormone antidiuretico",
   },
   {
-    id: 366, 
-    TrueOrFalse: false, 
+    id: 366,
+    TrueOrFalse: false,
     text: "un aumento della concentrazione ematica di renina è provocato da un aumento della concentrazione ematica di angiotensina II",
   },
   {
-    id: 367, 
-    TrueOrFalse: false, 
+    id: 367,
+    TrueOrFalse: false,
     text: "L'aumento delle resistenze vascolari da parte del sistema simpatico è ottenuto attraverso la costrizione del distretto venoso",
   },
   {
-    id: 368, 
-    TrueOrFalse: false, 
+    id: 368,
+    TrueOrFalse: false,
     text: "la tachicardia è un rallentamento fisiologico del battito cardiaco",
   },
   {
-    id: 369, 
-    TrueOrFalse: false, 
+    id: 369,
+    TrueOrFalse: false,
     text: "i barocettori attivano il sistema simpatico nel caso aumenti la concentrazione di CO2 nel sangue",
   },
   {
-    id: 370, 
-    TrueOrFalse: false, 
+    id: 370,
+    TrueOrFalse: false,
     text: "Il sistema simpatico controlla la costrizione dei vasi sanguigni attraverso il rilascio di acetilcolina",
   },
   {
-    id: 371, 
-    TrueOrFalse: true, 
+    id: 371,
+    TrueOrFalse: true,
     text: "Un blocco farmacologico dell'attività parasimpatica diretta al cuore ha l'effetto di aumentare la frequenza cardiaca",
   },
   {
-    id: 372, 
-    TrueOrFalse: true, 
+    id: 372,
+    TrueOrFalse: true,
     text: "Il cuore è in grado di eccitarsi ritmicamente anche se privato dell'innervazione autonomica",
   },
   {
-    id: 373, 
-    TrueOrFalse: true, 
+    id: 373,
+    TrueOrFalse: true,
     text: "Un abbassamento improvviso della pressione può evocare in via riflessa vasocostrizione arteriolare",
   },
   {
-    id: 374, 
-    TrueOrFalse: false, 
+    id: 374,
+    TrueOrFalse: false,
     text: "L'angiotensina II è un potente vasodilatatore e stimola la secrezione di ormone antidiuretico ",
   },
   {
-    id: 375, 
-    TrueOrFalse: true, 
+    id: 375,
+    TrueOrFalse: true,
     text: "La regolazione della pressione arteriosa avviene anche attraverso il controllo della volemia",
   },
   {
-    id: 376, 
-    TrueOrFalse: false, 
+    id: 376,
+    TrueOrFalse: false,
     text: "Un abbassamento improvviso della pressione arteriosa comporta un aumento riflesso dell'attività parasimpatica al cuore",
   },
   {
-    id: 377, 
-    TrueOrFalse: false, 
+    id: 377,
+    TrueOrFalse: false,
     text: "I muscoli addominali sono muscoli inspiratori",
   },
   {
-    id: 378, 
-    TrueOrFalse: false, 
+    id: 378,
+    TrueOrFalse: false,
     text: "la massima quantità di aria che può entrare nei polmoni di un individuo 'standard' è di circa 12L",
   },
   {
-    id: 379, 
-    TrueOrFalse: false, 
+    id: 379,
+    TrueOrFalse: false,
     text: "ad ogni atto respiratorio normale la miscela d'aria presente nei polmoni subisce un ricambio del 50% (50% dell'aria alveolare viene sostituita da 'aria fresca')",
   },
   {
-    id: 380, 
-    TrueOrFalse: true, 
+    id: 380,
+    TrueOrFalse: true,
     text: "La presenza di surfattante nel film liquido alveolare rende il polmone più facile da dilatare",
   },
   {
-    id: 381, 
-    TrueOrFalse: true, 
+    id: 381,
+    TrueOrFalse: true,
     text: "Alla fine di un'espirazione massimale la pressione intrapleurica è in valore assoluto minore (meno negativa) che alla fine di un'espirazione tranquilla",
   },
   {
-    id: 382, 
-    TrueOrFalse: true, 
+    id: 382,
+    TrueOrFalse: true,
     text: "Nella misura manuale della pressione arteriosa il bracciale deve prima essere portato ad una pressione superiore alla pressione sistolica del soggetto e poi sgonfiato lentamente",
   },
   {
-    id: 383, 
-    TrueOrFalse: true, 
+    id: 383,
+    TrueOrFalse: true,
     text: "La pressione parziale dell'ossigeno nel sangue arterioso vale circa quanto quella aria alveolare",
   },
   {
-    id: 384, 
-    TrueOrFalse: false, 
+    id: 384,
+    TrueOrFalse: false,
     text: "Il contenuto percentuale di ossigeno nel sangue venoso misto è di circa il 75%",
   },
   {
-    id: 385, 
-    TrueOrFalse: false, 
+    id: 385,
+    TrueOrFalse: false,
     text: "la saturazione dell'emoglobina nel sangue venoso misto è di circa il 20%",
   },
   {
-    id: 386, 
-    TrueOrFalse: true, 
+    id: 386,
+    TrueOrFalse: true,
     text: "il PH nel sangue venoso è minore che nel sangue arterioso ",
   },
   {
-    id: 387, 
-    TrueOrFalse: true, 
+    id: 387,
+    TrueOrFalse: true,
     text: "Durante un'inspirazione tranquilla l'attività dei muscoli inspiratori è coadiuvata all'attività dei muscoli espiratori",
   },
   {
-    id: 388, 
-    TrueOrFalse: false, 
+    id: 388,
+    TrueOrFalse: false,
     text: "L'attivazione del sistema simpatico abbassa la frequenza cardiaca",
   },
   {
-    id: 389, 
-    TrueOrFalse: false, 
+    id: 389,
+    TrueOrFalse: false,
     text: "L'attivazione del sistema simpatico aumenta la forza muscolare (muscoli scheletrici)",
   },
   {
-    id: 390, 
-    TrueOrFalse: false, 
+    id: 390,
+    TrueOrFalse: false,
     text: "L'attivazione del sistema simpatico aumenta la frequenza respiratoria ",
   },
   {
-    id: 391, 
-    TrueOrFalse: true, 
+    id: 391,
+    TrueOrFalse: true,
     text: "L'attivazione del sistema simpatico si verifica anche durante attività fisica intensa",
   },
   {
-    id: 392, 
-    TrueOrFalse: true, 
+    id: 392,
+    TrueOrFalse: true,
     text: "effettuare inspirazioni profonde agevola il ritorno venoso al cuore",
   },
   {
-    id: 393, 
-    TrueOrFalse: true, 
+    id: 393,
+    TrueOrFalse: true,
     text: "aumento del tono simpatico al distretto venoso agevola il ritorno venoso al cuore",
   },
   {
-    id: 394, 
-    TrueOrFalse: false, 
+    id: 394,
+    TrueOrFalse: false,
     text: "assunzione della posizione ortostatica rispetto a quella clinostatica agevola il ritorno venoso al cuore",
   },
   {
-    id: 395, 
-    TrueOrFalse: false, 
+    id: 395,
+    TrueOrFalse: false,
     text: "riduzione della pressione parziale di CO2 nel sangue arterioso agevola il ritorno venoso al cuore",
   },
   {
-    id: 396, 
-    TrueOrFalse: false, 
+    id: 396,
+    TrueOrFalse: false,
     text: "aumento della pressione addominale (es durante gravidanza) agevola il ritorno venoso al cuore",
   },
   {
-    id: 397, 
-    TrueOrFalse: false, 
+    id: 397,
+    TrueOrFalse: false,
     text: "Se ad un soggetto sano viene fatto respirare ossigeno puro la quantità di ossigeno nel sangue arterioso risulta più che raddoppiata",
   },
   {
-    id: 398, 
-    TrueOrFalse: false, 
+    id: 398,
+    TrueOrFalse: false,
     text: "Il volume di aria inspirato ed espirato in un atto respiratorio normale a riposo (volume corrente) vale circa 5 litri",
   },
   {
-    id: 399, 
-    TrueOrFalse: false, 
+    id: 399,
+    TrueOrFalse: false,
     text: "In condizioni normale la pressione parziale di ossigeno nel sangue vale circa 40mmHg",
   },
   {
-    id: 400, 
-    TrueOrFalse: false, 
+    id: 400,
+    TrueOrFalse: false,
     text: "il muscolo diaframma si contrae durante un'espirazione profonda",
   },
   {
-    id: 401, 
-    TrueOrFalse: true, 
+    id: 401,
+    TrueOrFalse: true,
     text: "in condizioni normali la saturazione dell'emoglobina nel sangue venoso è maggiore del 50%",
   },
   {
-    id: 402, 
-    TrueOrFalse: true, 
+    id: 402,
+    TrueOrFalse: true,
     text: "Può essere causa di edema una riduzione della pressione oncotica",
   },
   {
-    id: 403, 
-    TrueOrFalse: false, 
+    id: 403,
+    TrueOrFalse: false,
     text: "Può essere causa di edema un'insufficienza cardiaca che causa aumento della pressione venosa",
   },
   {
-    id: 404, 
-    TrueOrFalse: true, 
+    id: 404,
+    TrueOrFalse: true,
     text: "Può essere causa di edema L'abbassamento di pressione arteriosa conseguente ad una perdita di sangue",
   },
   {
-    id: 405, 
-    TrueOrFalse: true, 
+    id: 405,
+    TrueOrFalse: true,
     text: "Può essere causa di edema Una riduzione della concentrazione ematica di proteine causata da malnutrizione",
   },
   {
-    id: 406, 
-    TrueOrFalse: true, 
+    id: 406,
+    TrueOrFalse: true,
     text: "Può essere causa di edema Un'aumentata pressione addominale (ad esempio durante la gravidanza) ",
   },
   {
-    id: 407, 
-    TrueOrFalse: true, 
+    id: 407,
+    TrueOrFalse: true,
     text: "Può essere causa di edema aumento della permeabilità capillare che lasci sfuggire un po' di proteine negli spazi interstiziali",
   },
   {
-    id: 408, 
-    TrueOrFalse: false, 
+    id: 408,
+    TrueOrFalse: false,
     text: "Una condizioni di acidosi respiratoria stimola un aumento delle secrezioni di HCO3- nelle urine ",
   },
   {
-    id: 409, 
-    TrueOrFalse: true, 
+    id: 409,
+    TrueOrFalse: true,
     text: "Una condizioni di acidosi respiratoria può essere provocata da una patologia ostruttiva delle vie respiratorie",
   },
   {
-    id: 410, 
-    TrueOrFalse: false, 
+    id: 410,
+    TrueOrFalse: false,
     text: "Una condizioni di acidosi respiratoria è associata a ridotta concentrazione ematica di CO2",
   },
   {
-    id: 411, 
-    TrueOrFalse: true, 
+    id: 411,
+    TrueOrFalse: true,
     text: "Una condizioni di acidosi respiratoria attiva i chemocettori centrali e periferici",
   },
   {
-    id: 412, 
-    TrueOrFalse: false, 
+    id: 412,
+    TrueOrFalse: false,
     text: "Una condizioni di acidosi respiratoria Si verifica tipicamente in un individuo portato in alta quota",
   },
   {
-    id: 413, 
-    TrueOrFalse: false, 
+    id: 413,
+    TrueOrFalse: false,
     text: "i vasi venosi sono più complianti dei vasi arteriosi",
   },
   {
-    id: 414, 
-    TrueOrFalse: false, 
+    id: 414,
+    TrueOrFalse: false,
     text: "i vasi venosi, a differenza di quelli arteriosi non sono innervati dal sistema simpatico",
   },
   {
-    id: 415, 
-    TrueOrFalse: true, 
+    id: 415,
+    TrueOrFalse: true,
     text: "sia le cellule nervose che le cellule muscolari sono in grado di sviluppare potenziali d'azione",
   },
   {
-    id: 416, 
-    TrueOrFalse: false, 
+    id: 416,
+    TrueOrFalse: false,
     text: "L'interno della cellula è carico positivamente rispetto all'esterno",
   },
   {
-    id: 417, 
-    TrueOrFalse: false, 
+    id: 417,
+    TrueOrFalse: false,
     text: "Il sodio è più concentrato all'interno della cellula che nel liquido extracellulare",
   },
   {
-    id: 418, 
-    TrueOrFalse: true, 
+    id: 418,
+    TrueOrFalse: true,
     text: "La fase ascendente del potenziale d'azione è causata da un massiccio ingresso di ioni sodio all'interno della cellula",
   },
   {
-    id: 419, 
-    TrueOrFalse: true, 
+    id: 419,
+    TrueOrFalse: true,
     text: "il potenziale d'azione si propaga più velocemente sulle fibre di grosse dimensioni che sulle piccole",
   },
   {
-    id: 420, 
-    TrueOrFalse: false, 
+    id: 420,
+    TrueOrFalse: false,
     text: "L'insulina impedisce l'ingresso di glucosio nelle cellule",
   },
   {
-    id: 421, 
-    TrueOrFalse: true, 
+    id: 421,
+    TrueOrFalse: true,
     text: "L'insulina plasmatica è più alta nello stato assimilativo",
   },
   {
-    id: 422, 
-    TrueOrFalse: false, 
+    id: 422,
+    TrueOrFalse: false,
     text: "L'insulina plasmatica è più alta nello stato post assimilativo",
   },
   {
-    id: 423, 
-    TrueOrFalse: true, 
+    id: 423,
+    TrueOrFalse: true,
     text: "Il quoziente respiratorio è il rapporto tra la CO2 prodotta e l'O2 consumato",
   },
   {
-    id: 424, 
-    TrueOrFalse: false, 
+    id: 424,
+    TrueOrFalse: false,
     text: "Il quoziente respiratorio è il rapporto tra la ventilazione polmonare e lavoro meccanico svolto dall'organismo",
   },
   {
-    id: 425, 
-    TrueOrFalse: false, 
+    id: 425,
+    TrueOrFalse: false,
     text: "In condizioni normali la maggior parte del calore viene perso per conduzione",
   },
   {
-    id: 426, 
-    TrueOrFalse: false, 
+    id: 426,
+    TrueOrFalse: false,
     text: "il centro della termoregolazione si trova nel tronco dell'encefalo ",
   },
   {
-    id: 427, 
-    TrueOrFalse: false, 
+    id: 427,
+    TrueOrFalse: false,
     text: "I termocettori sono esclusivamente localizzati a livello cutaneo",
   },
   {
-    id: 428, 
-    TrueOrFalse: false, 
+    id: 428,
+    TrueOrFalse: false,
     text: "La termogenesi da brivido aumenta la termodispersione",
   },
   {
-    id: 429, 
-    TrueOrFalse: true, 
+    id: 429,
+    TrueOrFalse: true,
     text: "Nell'ipotalamo ci sono i termocettori detti centrali",
   },
   {
-    id: 430, 
-    TrueOrFalse: false, 
+    id: 430,
+    TrueOrFalse: false,
     text: "La sudorazione fa aumentare la termogenesi",
   },
   {
-    id: 431, 
-    TrueOrFalse: true, 
+    id: 431,
+    TrueOrFalse: true,
     text: "il cortisolo ha effetti anti-infiammatori",
   },
   {
-    id: 432, 
-    TrueOrFalse: false, 
+    id: 432,
+    TrueOrFalse: false,
     text: "il cortisolo ha effetti immunostimolanti",
   },
   {
-    id: 433, 
-    TrueOrFalse: false, 
+    id: 433,
+    TrueOrFalse: false,
     text: "la secrezione di cortisolo è stimolata da TSH",
   },
   {
-    id: 434, 
-    TrueOrFalse: true, 
+    id: 434,
+    TrueOrFalse: true,
     text: "gli ormoni tiroidei stimolano il metabolismo",
   },
   {
-    id: 435, 
-    TrueOrFalse: false, 
+    id: 435,
+    TrueOrFalse: false,
     text: "Gli ormoni tiroidei inibiscono il metabolismo",
   },
   {
-    id: 436, 
-    TrueOrFalse: true, 
+    id: 436,
+    TrueOrFalse: true,
     text: "Gli ormoni tiroidei sono importanti per lo sviluppo del sistema nervoso",
   },
   {
-    id: 437, 
-    TrueOrFalse: true, 
+    id: 437,
+    TrueOrFalse: true,
     text: "In una contrazione muscolare di debole intensità l'accorciamento del muscolo avviene grazie alla contrazione attiva di solo una parte delle fibre muscolari, le altri rimangono rilassate",
   },
   {
-    id: 438, 
-    TrueOrFalse: false, 
+    id: 438,
+    TrueOrFalse: false,
     text: "La contrazione della fibra muscolare scheletrica si sviluppa solo a seguito dell'insorgenza di un potenziale d'azione da parte della cellula stessa",
   },
   {
-    id: 439, 
-    TrueOrFalse: false, 
+    id: 439,
+    TrueOrFalse: false,
     text: "Le fibre muscolari sono innervate da motoneuroni localizzati nella corteccia motoria primaria ",
   },
   {
-    id: 440, 
-    TrueOrFalse: false, 
+    id: 440,
+    TrueOrFalse: false,
     text: "A livello della placca neuromuscolare viene rilasciato il neurotrasmettitore adrenalina",
   },
   {
-    id: 441, 
-    TrueOrFalse: true, 
+    id: 441,
+    TrueOrFalse: true,
     text: "Il curaro è una sostanza chimica che blocca la trasmissione sinaptica a livello della placca muscolare",
   },
   {
-    id: 442, 
-    TrueOrFalse: true, 
+    id: 442,
+    TrueOrFalse: true,
     text: "Lo ione calcio ha un ruolo importante nel meccanismo contrattile in quanto la sua presenza nel citoplasma permette l'accoppiamento tra i filamenti di actina e miosina",
   },
   {
-    id: 443, 
-    TrueOrFalse: false, 
+    id: 443,
+    TrueOrFalse: false,
     text: "durante la contrazione i singoli sarcomeri si accorciano grazie all'accorciamento dei filamenti di miosina (filamenti spessi)",
   },
   {
-    id: 444, 
-    TrueOrFalse: true, 
+    id: 444,
+    TrueOrFalse: true,
     text: "per afferrare un oggetto con la sinistra attivo la corteccia motoria di destra",
   },
   {
-    id: 445, 
-    TrueOrFalse: true, 
+    id: 445,
+    TrueOrFalse: true,
     text: "uno stimolo dolorifico alla mano provoca un riflesso di retrazione che comporta la flessione del gomito",
   },
   {
-    id: 446, 
-    TrueOrFalse: false, 
+    id: 446,
+    TrueOrFalse: false,
     text: "una risposta motoria riflessa è mediata da almeno tre neuroni in serie",
   },
   {
-    id: 447, 
-    TrueOrFalse: true, 
+    id: 447,
+    TrueOrFalse: true,
     text: "gli interneuroni inibitori sono neuroni spinali che se vengono eccitati provocano l'inibizione di altri neuroni",
   },
   {
-    id: 448, 
-    TrueOrFalse: true, 
+    id: 448,
+    TrueOrFalse: true,
     text: "nel sistema nervoso centrale ci sono sia cellule gliali che neuroni",
   },
   {
-    id: 449, 
-    TrueOrFalse: false, 
+    id: 449,
+    TrueOrFalse: false,
     text: "la contrazione del muscolo è dovuta all'accorciamento dei filamenti spessi e sottili",
   },
   {
-    id: 450, 
-    TrueOrFalse: false, 
+    id: 450,
+    TrueOrFalse: false,
     text: "Nel muscolo striato la contrazione è modulata dalla calmodulina",
   },
   {
-    id: 451, 
-    TrueOrFalse: false, 
+    id: 451,
+    TrueOrFalse: false,
     text: "La scossa muscolare dura meno del potenziale d'azione",
   },
   {
-    id: 452, 
-    TrueOrFalse: false, 
+    id: 452,
+    TrueOrFalse: false,
     text: "nel muscolo scheletrico la scossa muscolare ha la stessa durata del potenziale d'azione",
   },
   {
-    id: 453, 
-    TrueOrFalse: false, 
+    id: 453,
+    TrueOrFalse: false,
     text: "le fibre muscolare a contrazione lenta hanno un metabolismo anaerobico",
   },
   {
-    id: 454, 
-    TrueOrFalse: false, 
+    id: 454,
+    TrueOrFalse: false,
     text: "nel muscolo liscio non ci sono actina e miosina",
   },
   {
-    id: 455, 
-    TrueOrFalse: true, 
+    id: 455,
+    TrueOrFalse: true,
     text: "alcuni tipi di muscolo liscio si contraggono in risposta allo stiramento",
   },
   {
-    id: 456, 
-    TrueOrFalse: false, 
+    id: 456,
+    TrueOrFalse: false,
     text: "La leptina stimola l'assunzione di cibo",
   },
   {
-    id: 457, 
-    TrueOrFalse: false, 
+    id: 457,
+    TrueOrFalse: false,
     text: "il parasimpatico si attiva nelle situazioni di lotta o fuga",
   },
   {
-    id: 458, 
-    TrueOrFalse: false, 
+    id: 458,
+    TrueOrFalse: false,
     text: "La ghiandola midollare del surrene secerne acetilcolina",
   },
   {
-    id: 459, 
-    TrueOrFalse: true, 
+    id: 459,
+    TrueOrFalse: true,
     text: "Le fibre muscolari a contrazione rapida sono meno resistenti alla fatica",
   },
   {
-    id: 460, 
-    TrueOrFalse: true, 
+    id: 460,
+    TrueOrFalse: true,
     text: "nel muscolo liscio la contrazione è regolata dalla calmodulina",
   },
   {
-    id: 461, 
-    TrueOrFalse: true, 
+    id: 461,
+    TrueOrFalse: true,
     text: "la contrazione del muscolo è dovuta allo scorrimento reciproco dei filamenti spessi e sottili",
   },
   {
-    id: 462, 
-    TrueOrFalse: true, 
+    id: 462,
+    TrueOrFalse: true,
     text: "Un'unità motoria è costituita da un motoneurone e da tutte le fibre da esso innervate",
   },
   {
-    id: 463, 
-    TrueOrFalse: false, 
+    id: 463,
+    TrueOrFalse: false,
     text: "A seguito della depolarizzazione della membrana della fibra muscolare, il reticolo sarcoplasmatico rilascia ioni Na+ nel sarcoplasma",
   },
   {
-    id: 464, 
-    TrueOrFalse: false, 
+    id: 464,
+    TrueOrFalse: false,
     text: "L'acetilcolinesterasi è un enzima che produce acetilcolina a livello della placca neuromuscolare",
   },
   {
-    id: 465, 
-    TrueOrFalse: false, 
+    id: 465,
+    TrueOrFalse: false,
     text: "La pressione sanguigna nelle vene di un individuo in posizione clinostatica è solitamente compresa tra 50 e 70 mmHg",
   },
   {
-    id: 466, 
-    TrueOrFalse: false, 
+    id: 466,
+    TrueOrFalse: false,
     text: "La resistenza che un vaso sanguigno offre al passaggio del sangue aumenta all'aumentare del diametro del vaso",
   },
   {
-    id: 467, 
-    TrueOrFalse: false, 
+    id: 467,
+    TrueOrFalse: false,
     text: "La pressione sanguigna è maggiore nelle vene che nei capillari",
   },
   {
-    id: 468, 
-    TrueOrFalse: false, 
+    id: 468,
+    TrueOrFalse: false,
     text: "I carboidrati sono digeriti e assimilati a livello dello stomaco",
   },
   {
-    id: 469, 
-    TrueOrFalse: true, 
+    id: 469,
+    TrueOrFalse: true,
     text: "La secrezione gastrica è stimolata dall'attività sistema parasimpatico (nervo vago)",
   },
   {
-    id: 470, 
-    TrueOrFalse: false, 
+    id: 470,
+    TrueOrFalse: false,
     text: "I sali biliari partecipano alla digestione delle proteine, scindendole in polipeptidi di minore dimensione",
   },
   {
-    id: 471, 
-    TrueOrFalse: true, 
+    id: 471,
+    TrueOrFalse: true,
     text: "l'Omeostasi è la costanza dei parametri dell'ambiente interno dell'organismo",
   },
   {
-    id: 472, 
-    TrueOrFalse: true, 
+    id: 472,
+    TrueOrFalse: true,
     text: "Per ambiente interno si intende liquido extracellulare",
   },
   {
-    id: 473, 
-    TrueOrFalse: true, 
+    id: 473,
+    TrueOrFalse: true,
     text: "Una proprietà degli meccanismi omeostatici è il livello tonico di attività",
   },
   {
-    id: 474, 
-    TrueOrFalse: true, 
+    id: 474,
+    TrueOrFalse: true,
     text: "Il flusso per diffusione prosegue finchè le concentrazioni non sono uniformi",
   },
   {
-    id: 475, 
-    TrueOrFalse: true, 
+    id: 475,
+    TrueOrFalse: true,
     text: "Il flusso di volume viene generato da una differenza di concentrazione",
   },
   {
-    id: 476, 
-    TrueOrFalse: true, 
+    id: 476,
+    TrueOrFalse: true,
     text: "una proprietà dei meccanismi omeopatici è il controllo antagonista",
   },
   {
-    id: 477, 
-    TrueOrFalse: true, 
+    id: 477,
+    TrueOrFalse: true,
     text: "IL SISTEMA SIMPATICO gli interneuroni inibitori sono neuroni spinali che se vengono eccitati provocano l’inibizione di altri neuroni",
   },
   {
@@ -2752,447 +2752,447 @@ const Questions = [
     TrueOrFalse: true,
     text: "Il sistema parasimpatico si distingue da quello simpatico per aspetti funzionali quali il contesto di attivazione, l'attività parasimpatica è maggiormente legata a funzioni digestive, quella simpatica è maggiormente legata ad attività motorie",
   },
-  { 
+  {
     id: 552,
     TrueOrFalse: false,
     text: "Una fibra muscolare scheletrica a differenza della cellula muscolare liscia, produce energia con metabolismo anaerobico",
   },
-  { 
+  {
     id: 553,
     TrueOrFalse: true,
     text: "Una fibra muscolare scheletrica contiene depositi intracellulari di calcio",
   },
-  { 
+  {
     id: 554,
     TrueOrFalse: false,
     text: "Una fibra muscolare scheletrica è innervata normalmente da più di un motoneurone ",
   },
-  { 
+  {
     id: 555,
     TrueOrFalse: false,
     text: "Una fibra muscolare scheletrica presenta recettori per la noradrenalina a livello della placca neuromuscolare",
   },
-  { 
+  {
     id: 556,
     TrueOrFalse: true,
     text: "La forza sviluppata da un muscolo dipende dalla concentrazione di calcio raggiunta durante la contrazione delle fibre muscolari",
   },
-  { 
+  {
     id: 557,
     TrueOrFalse: true,
     text: "In una contrazione muscolare di debole intensità l'accorciamento del muscolo avviene grazie alla contrazione attiva di solo una parte delle fibre muscolari, le altre fibre rimangono rilassate",
   },
-  { 
+  {
     id: 558,
     TrueOrFalse: false,
     text: "A seguito della depolarizzazione della membrana della fibra muscolare, il reticolo sarcoplasmatico rilascia ioni Na+ nel sarcoplasma",
   },
-  { 
+  {
     id: 559,
     TrueOrFalse: false,
     text: "L'acetilcolinesterasi è un enzima che produce acetilcolina a livello della placca neuromuscolare",
   },
-  { 
+  {
     id: 560,
     TrueOrFalse: true,
     text: "Le fibre muscolari rosse (toniche) sono più ricche di mioglobina e sono meno affaticabili di quelle fasiche (pallide)",
   },
-  { 
+  {
     id: 561,
     TrueOrFalse: true,
     text: "la liberazione di calcio nel sarcoplasma è necessaria perché avvenga la contrazione muscolare",
   },
-  { 
+  {
     id: 562,
     TrueOrFalse: true,
     text: "in una contrazione di debole intensità una parte delle cellule muscolari non viene eccitata e quindi non si contrae",
   },
-  { 
+  {
     id: 563,
     TrueOrFalse: true,
     text: "Le fibre di un'unica unità motoria sono innervate tutte dallo stesso motoneurone",
   },
-  { 
+  {
     id: 564,
     TrueOrFalse: false,
     text: "la contrazione della fibra muscolare cardiaca si ha per accorciamento dei filamenti di miosina e actina",
   },
-  { 
+  {
     id: 565,
     TrueOrFalse: true,
     text: "la fibra muscolare cardiaca sfrutta dell'ingresso di calcio dal compartimento extracellulare per avviare la contrazione",
   },
-  { 
+  {
     id: 566,
     TrueOrFalse: false,
     text: "Il riflesso Miotatico (o da stiramento) comporta sempre le attivazioni di muscoli flessori e l'inibizione di muscoli estensori",
   },
-  { 
+  {
     id: 567,
     TrueOrFalse: false,
     text: "Il riflesso Miotatico (o da stiramento) può essere evocato da uno stimolo doloroso sul tendine rotuleo ",
   },
-  { 
+  {
     id: 568,
     TrueOrFalse: true,
     text: "Il riflesso Miotatico (o da stiramento) è il riflesso per cui un muscolo che subisce un allungamento risponde con una contrazione",
   },
-  { 
+  {
     id: 569,
     TrueOrFalse: true,
     text: "Il riflesso Miotatico (o da stiramento) è mediato dall'attivazione di recettori muscolari",
   },
-  { 
+  {
     id: 570,
     TrueOrFalse: true,
     text: "Il miocardio a differenza della muscolatura scheletrica, non può avere una contrazione tetanica perché il potenziale d'azione della singola fibra muscolare e quindi il periodo di refrattarietà dura assai più a lungo (circa 300ms) che nella fibra muscolare scheletrica",
   },
-  { 
+  {
     id: 571,
     TrueOrFalse: true,
     text: "Il miocardio a differenza della muscolatura scheletrica, non può avere una contrazione tetanica perché la contrazione del muscolo cardiaco (sistole) ha una durata che è dello stesso ordine di grandezza di quella del potenziale d'azione (nella fibra muscolare cardiaca)",
   },
-  { 
+  {
     id: 572,
     TrueOrFalse: false,
     text: "Il miocardio a differenza della muscolatura scheletrica, non può avere una contrazione tetanica perché il parasimpatico invia impulsi inibitori nella fase di diastole",
   },
-  { 
+  {
     id: 573,
     TrueOrFalse: true,
     text: "L'attivazione simpatica aumenta la frequenza cardiaca e potenzia la contrattilità",
   },
-  { 
+  {
     id: 574,
     TrueOrFalse: true,
     text: "Il sistema parasimpatico influenza essenzialmente la frequenza cardiaca diminuendola",
   },
-  { 
+  {
     id: 575,
     TrueOrFalse: true,
     text: "Frequenza e contrattilità cardiaca sono potenziate anche dalle catecolamine (adrenalina e noradrenalina) circolanti (veicolate dal sangue)",
   },
-  { 
+  {
     id: 576,
     TrueOrFalse: true,
     text: "La secrezione di aldosterone è stimolata, tramite molecole intermedie, dalla renina",
   },
-  { 
+  {
     id: 577,
     TrueOrFalse: true,
     text: "L'aldosterone favorisce la secrezione di ioni potassio",
   },
-  { 
+  {
     id: 578,
     TrueOrFalse: false,
     text: "L'aldosterone è secreto dalla midollare del surrene",
   },
-  { 
+  {
     id: 579,
     TrueOrFalse: false,
     text: "(fegato) L'angiotensina II è secreta dalla corticale del surrene",
   },
-  { 
+  {
     id: 580,
     TrueOrFalse: true,
     text: "La liberazione di adrenalina è stimolata dal sistema simpatico",
   },
-  { 
+  {
     id: 581,
     TrueOrFalse: false,
     text: "I processi digestivi sono stimolati dal sistema simpatico",
   },
-  { 
+  {
     id: 582,
     TrueOrFalse: true,
     text: "Il pancreas ha funzione endocrina",
   },
-  { 
+  {
     id: 583,
     TrueOrFalse: false,
     text: "L'aldosterone è secreto dalla ipofisi anteriore",
   },
-  { 
+  {
     id: 584,
     TrueOrFalse: true,
     text: "l'aldosterone è secreto dalla corticale del surrene",
   },
-  { 
+  {
     id: 585,
     TrueOrFalse: false,
     text: "l'aldosterone è secreto dalle cellule della macula densa",
   },
-  { 
+  {
     id: 586,
     TrueOrFalse: false,
     text: "L'aldosterone favorisce la secrezione di sodio",
   },
-  { 
+  {
     id: 587,
     TrueOrFalse: false,
     text: "L'aldosterone provoca nel rene un aumento di secrezione di sodio",
   },
-  { 
+  {
     id: 588,
     TrueOrFalse: false,
     text: "(acido carbonico/bicarbonato) Il principale sistema tampone fisiologico è quello dei fosfati",
   },
-  { 
+  {
     id: 589,
     TrueOrFalse: false,
     text: "La compensazione renale dell'alcalosi avviene mediante aumentato riassorbimento di bicarbonato ",
   },
-  { 
+  {
     id: 590,
     TrueOrFalse: false,
     text: "I brividi accompagnano l'eliminazione di calore in eccesso durante gli episodi febbrili",
   },
-  { 
+  {
     id: 591,
     TrueOrFalse: true,
     text: "Il sistema nervoso simpatico regola gli scambi di calore nella porzione più esterna della superficie corporea",
   },
-  { 
+  {
     id: 592,
     TrueOrFalse: false,
     text: "I valori dei set point della temperatura corporea in condizioni fisiologiche è assolutamente invariabile durante la vita di un individuo",
   },
-  { 
+  {
     id: 593,
     TrueOrFalse: true,
     text: "Il principale distributore di calore tra i vari distretti corporei è il sangue",
   },
-  { 
+  {
     id: 594,
     TrueOrFalse: false,
     text: "Le fibre simpatiche che innervano il cuore hanno il loro corpo cellulare (soma) nel midollo spinale  ",
   },
-  { 
+  {
     id: 595,
     TrueOrFalse: false,
     text: "I motoneuroni alfa che innervano i muscoli scheletrici hanno il loro corpo cellulare nei gangli annessi alle radici dorsali del midollo spinale  ",
   },
-  { 
+  {
     id: 596,
     TrueOrFalse: false,
     text: "I movimenti posturali, che garantiscono il mantenimento della postura e dell'equilibrio dell'organismo nelle diverse situazioni sono pianificati nel dettaglio dalla corteccia motoria ",
   },
-  { 
+  {
     id: 597,
     TrueOrFalse: false,
     text: "La resistenza idraulica di un vaso sanguigno è inversamente proporzionale al quadrato del suo diametro",
   },
-  { 
+  {
     id: 598,
     TrueOrFalse: false,
     text: "La pressione del sangue nelle vene è leggermente superiore che nei capillari",
   },
-  { 
+  {
     id: 599,
     TrueOrFalse: true,
     text: "La pressione del sangue in vene e arterie è influenzata dalla postura",
   },
-  { 
+  {
     id: 600,
     TrueOrFalse: false,
     text: "La differenza di pressione osmotica tra sangue e liquido interstiziale vale circa 100 mmHg",
   },
-  { 
+  {
     id: 601,
     TrueOrFalse: false,
     text: "La velocità del sangue nei capillari è maggiore che nell'aorta dato che la sezione di un capillare è molto minore di quella dell'aorta ",
   },
-  { 
+  {
     id: 602,
     TrueOrFalse: true,
     text: "Un aumento dell'attività del sistema simpatico comporta in generale un aumento della pressione arteriosa",
   },
-  { 
+  {
     id: 603,
     TrueOrFalse: false,
     text: "Un'improvvisa ipotensione (abbassamento della pressione arteriosa) ha come primo effetto un aumento della concentrazione ematica di angiotensina II",
   },
-  { 
+  {
     id: 604,
     TrueOrFalse: true,
     text: "L'angiotensina II ha il duplice effetto di aumentare le resistenze vascolari e ridurre la diuresi attraverso l'azione dell'aldosterone",
   },
-  { 
+  {
     id: 605,
     TrueOrFalse: true,
     text: "in un soggetto che abbia subito un'emorragia è possibile osservare aumentata frequenza cardiaca e pallore (vasocostrizione cutanea)",
   },
-  { 
+  {
     id: 606,
     TrueOrFalse: true,
     text: "La pressione intrapleurica si mantiene negativa durante l'intero ciclo respiratorio normale",
   },
-  { 
+  {
     id: 607,
     TrueOrFalse: true,
     text: "La pressione intrapleurica può diventare positiva durante un colpo di tosse",
   },
-  { 
+  {
     id: 608,
     TrueOrFalse: false,
     text: "La pressione intrapleurica diventa molto negativa quando soffiamo per gonfiare un palloncino d'aria ",
   },
-  { 
+  {
     id: 609,
     TrueOrFalse: false,
     text: "La pressione intrapleurica si misura solitamente in cmH20 essendo 1cm H20=76 mmHg",
   },
-  { 
+  {
     id: 610,
     TrueOrFalse: true,
     text: "La pressione intrapleurica si misura in cmH20 essendo 1000cmH20=760 mmHg",
   },
-  { 
+  {
     id: 611,
     TrueOrFalse: true,
     text: "La pressione intrapleurica diventa prossima a zero nel pneumotorace",
   },
-  { 
+  {
     id: 612,
     TrueOrFalse: true,
     text: "Nel pneumotorace si verifica l'ingresso di aria nello spazio pleurico",
   },
-  { 
+  {
     id: 613,
     TrueOrFalse: false,
     text: "La presenza di surfattante nel film liquido alveolare ne abbassa la tensione superficiale con il risultato di diminuire la compliance polmonare ",
   },
-  { 
+  {
     id: 614,
     TrueOrFalse: false,
     text: "Un normale atto respiratorio non richiede la contrazione dei muscoli espiratori",
   },
-  { 
+  {
     id: 615,
     TrueOrFalse: false,
     text: "Durante un'espirazione tranquilla la pressione pleurica è leggermente positiva",
   },
-  { 
+  {
     id: 616,
     TrueOrFalse: false,
     text: "La pressione alveolare varia nella respirazione tranquilla tra +1 e -1 cmH2O",
   },
-  { 
+  {
     id: 617,
     TrueOrFalse: true,
     text: "L'anidride carbonica è trasportata dal sangue in combinazione con l'emoglobina",
   },
-  { 
+  {
     id: 618,
     TrueOrFalse: true,
     text: "L'anidride carbonica è trasportata dal sangue come gas disciolto, nel plasma",
   },
-  { 
+  {
     id: 619,
     TrueOrFalse: false,
     text: "L'anidride carbonica è trasportata dal sangue da enzimi specifici come l'anidrasi carbonica",
   },
-  { 
+  {
     id: 620,
     TrueOrFalse: true,
     text: "L'anidride carbonica è trasportata dal sangue soprattutto come bicarbonato ",
   },
-  { 
+  {
     id: 621,
     TrueOrFalse: false,
     text: "La fondamentale ritmicità del respiro per la quale inspirazione ed espirazione si alternano regolarmente è generata da un centro situato nel midollo spinale",
   },
-  { 
+  {
     id: 622,
     TrueOrFalse: true,
     text: "La fondamentale ritmicità del respiro per la quale inspirazione ed espirazione si alternano regolarmente è generata principalmente all'attività di centri situati nel bulbo ma è modulata da altri centri troncoencefalici e da varie afferenze",
   },
-  { 
+  {
     id: 623,
     TrueOrFalse: false,
     text: "La fondamentale ritmicità del respiro per la quale inspirazione ed espirazione si alternano regolarmente è generata a livello dei centri corticali",
   },
-  { 
+  {
     id: 624,
     TrueOrFalse: true,
     text: "La fondamentale ritmicità del respiro per la quale inspirazione ed espirazione si alternano regolarmente può essere alterata da stimoli emozionali",
   },
-  { 
+  {
     id: 625,
     TrueOrFalse: false,
     text: "La filtrazione è un processo che avviene lungo tutto il tubulo renale",
   },
-  { 
+  {
     id: 626,
     TrueOrFalse: false,
     text: "la filtrazione è un processo che avviene tramite meccanismi di diffusione facilitata",
   },
-  { 
+  {
     id: 627,
     TrueOrFalse: true,
     text: "la filtrazione è un processo che avviene solo nel glomerulo",
   },
-  { 
+  {
     id: 628,
     TrueOrFalse: true,
     text: "La filtrazione è un processo totalmente passivo",
   },
-  { 
+  {
     id: 629,
     TrueOrFalse: true,
     text: "Nel meccanismo di scambio per controcorrente vi è scambio di acqua e soluti",
   },
-  { 
+  {
     id: 630,
     TrueOrFalse: false,
     text: "Nel meccanismo di scambio per controcorrente vi è solo scambio di acqua ",
   },
-  { 
+  {
     id: 631,
     TrueOrFalse: false,
     text: "Nel meccanismo di scambio per controcorrente vi è solo scambio di soluti",
   },
-  { 
+  {
     id: 632,
     TrueOrFalse: false,
     text: "Nel meccanismo di scambio per controcorrente vi è scambio di plasma tra i vasa recta",
   },
-  { 
+  {
     id: 633,
     TrueOrFalse: false,
     text: "il processo di secrezione coinvolge acqua e soluti",
   },
-  { 
+  {
     id: 634,
     TrueOrFalse: true,
     text: "il processo di secrezione coinvolge solo molecole di soluti",
   },
-  { 
+  {
     id: 635,
     TrueOrFalse: true,
     text: "il processo di secrezione avviene lungo tutto il tubulo",
   },
-  { 
+  {
     id: 636,
     TrueOrFalse: false,
     text: "il processo di secrezione avviene solo nel dotto collettore",
   },
-  { 
+  {
     id: 637,
     TrueOrFalse: true,
     text: "il riassorbimento di acqua lungo il tubulo avviene secondo un gradiente osmotico",
   },
-  { 
+  {
     id: 638,
     TrueOrFalse: true,
     text: "il riassorbimento di acqua lungo il tubulo può essere modulato da fattori ormonali",
   },
-  { 
+  {
     id: 639,
     TrueOrFalse: true,
     text: "il rene ha funzione endocrina",
   },
-  { 
+  {
     id: 640,
     TrueOrFalse: false,
     text: "La parete tubulare non è in grado di riassorbire filtrato",
@@ -5094,4 +5094,4 @@ const Questions = [
   },
 ];
 
-export {Questions};
+export { Questions };
