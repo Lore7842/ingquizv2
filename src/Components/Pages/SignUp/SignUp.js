@@ -26,6 +26,7 @@ export default function Signup() {
         correct_answers: 0,
         wrong: 0,
         total: 0,
+        total_quiz : 0
       })
       .then(() => {
         setLoading(false);

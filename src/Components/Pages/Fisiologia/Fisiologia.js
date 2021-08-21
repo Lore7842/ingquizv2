@@ -1,9 +1,9 @@
-import {React, useState, useEffect, useReducer } from "react";
-import './Fisiologia.css';
-import {Questions} from './Fisioback';
-import {Results} from '../Results/Results';
-import firebase from '../Results/base';
-import {Link} from 'react-router-dom';
+import { React, useState, useEffect, useReducer } from "react";
+import "./Fisiologia.css";
+import { Questions } from "./Fisioback";
+import { Results } from "../Results/Results";
+import firebase from "../Results/base";
+import { Link } from "react-router-dom";
 let history = [];
 let historyNum = [];
 
@@ -60,7 +60,7 @@ function reducer(state, action) {
         show: false,
       };
     case "show":
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 60; i++) {
         if (history[i] === 1) {
           selector.children.item(i).classList.add("correct");
         } else {
@@ -92,8 +92,9 @@ function reducer(state, action) {
               correct_answers: firebase.firestore.FieldValue.increment(
                 state.score/2
               ),
-              wrong: firebase.firestore.FieldValue.increment(15 - state.score/2),
-              total: firebase.firestore.FieldValue.increment(15),
+              wrong: firebase.firestore.FieldValue.increment(30 - state.score/2),
+              total: firebase.firestore.FieldValue.increment(30),
+              total_quiz : firebase.firestore.FieldValue.increment(1)
             });
             console.log(docRef.wrong);
           });
@@ -172,14 +173,14 @@ function Fisiologia(props) {
         <Results
           history={history}
           historyD={historyNum}
-          numD={30}
+          numD={60}
           dispatch={dispatch}
         />
       ) : state.num === 0 ? (
         <div className="home-box custom-box">
           <h3>Istruzioni per il quiz:</h3>
           <p>
-            Il quiz è composto da <span className="total-questions">30</span>{" "}
+            Il quiz è composto da <span className="total-questions">60</span>{" "}
             domande
           </p>
           <button
@@ -192,7 +193,7 @@ function Fisiologia(props) {
             Inizia
           </button>
         </div>
-      ) : state.num <= 30 ? (
+      ) : state.num <= 60 ? (
         <div className="quiz-box custom-box">
           <div className="question-number">Domanda {state.num}</div>
           <div className="question-text">{Questions[state.numD]["text"]}</div>
@@ -225,7 +226,7 @@ function Fisiologia(props) {
               <tr>
                 <td>Numero di domande</td>
                 <td>
-                  <span className="total-question">30</span>
+                  <span className="total-question">60</span>
                 </td>
               </tr>
               <tr>
@@ -243,26 +244,56 @@ function Fisiologia(props) {
               <tr>
                 <td>Sbagliate o non date</td>
                 <td>
-                  <span className="total-wrong">{30 - state.score}</span>
+                  <span className="total-wrong">{60 - state.score}</span>
                 </td>
               </tr>
               <tr>
                 <td>Percentuale</td>
                 <td>
                   <span className="percentage">
-                    {Math.round((state.score / 30) * 100)}%
+                    {Math.round((state.score / 60) * 100)}%
                   </span>
                 </td>
               </tr>
               <tr>
                 <td>Punteggio totale</td>
                 <td>
-                  <span className="total-score">{state.score}/30</span>
+                  <span className="total-score">{state.score}/60</span>
                 </td>
               </tr>
             </tbody>
           </table>
           <div className="answers-indicator">
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
+            <div className="indicator"></div>
             <div className="indicator"></div>
             <div className="indicator"></div>
             <div className="indicator"></div>
@@ -301,11 +332,7 @@ function Fisiologia(props) {
           >
             Riprova il quiz
           </button>
-          <Link to="/home"
-            type="button"
-            className="bott"
-            
-          >
+          <Link to="/home" type="button" className="bott">
             Torna alla pagina principale
           </Link>
           <button

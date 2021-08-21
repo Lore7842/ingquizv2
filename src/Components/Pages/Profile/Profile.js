@@ -25,7 +25,7 @@ function Profile(props) {
     .then((querySnaphot) => {
       querySnaphot.forEach((doc) => {
         correct_answers = doc.data().correct_answers;
-        num_quiz = doc.data().num_quiz;
+        num_quiz = doc.data().total_quiz;
         wrong_answers = doc.data().wrong;
         total_answers = doc.data().total;
       });
