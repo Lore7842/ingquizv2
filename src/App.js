@@ -26,6 +26,7 @@ function App() {
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={Profile} />
+            <PrivateRoute exact path="/ingquiz" component={Profile} />
             <PrivateRoute exact path="/r" component={ProfileResp} />
             <PrivateRoute exact path="/homeResp" component={MenuResp} />
             <Route path="/about" component={About} />
