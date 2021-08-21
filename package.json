@@ -1,6 +1,6 @@
 {
-  "homepage": "http://lore7842.github.io/quiz",
-  "name": "quiz",
+  "homepage": "http://lore7842.github.io/ingquiz",
+  "name": "ingquiz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
