@@ -91,13 +91,13 @@ function reducer(state, action) {
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score / 2
+                state.score 
               ),
               wrong: firebase.firestore.FieldValue.increment(
-                30 - state.score / 2
+                30 - state.score 
               ),
-              total: firebase.firestore.FieldValue.increment(30),
-              total_quiz: firebase.firestore.FieldValue.increment(0.5),
+              total: firebase.firestore.FieldValue.increment(60),
+              total_quiz: firebase.firestore.FieldValue.increment(1),
             });
             console.log(docRef.wrong);
           });
@@ -125,13 +125,13 @@ function reducer(state, action) {
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score / 2
+                state.score 
               ),
               wrong: firebase.firestore.FieldValue.increment(
-                30 - state.score / 2
+                30 - state.score 
               ),
-              total: firebase.firestore.FieldValue.increment(30),
-              total_quiz: firebase.firestore.FieldValue.increment(0.5),
+              total: firebase.firestore.FieldValue.increment(60),
+              total_quiz: firebase.firestore.FieldValue.increment(1),
             });
             console.log(docRef.wrong);
           });
