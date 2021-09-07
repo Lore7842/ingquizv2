@@ -4,6 +4,7 @@ import { Questions } from "./Fisioback";
 import { Results } from "../Results/Results";
 import firebase from "../Results/base";
 import { Link } from "react-router-dom";
+import Home from "../Home/Home"
 let history = [];
 let historyNum = [];
 
@@ -90,11 +91,13 @@ function reducer(state, action) {
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score/2
+                state.score / 2
               ),
-              wrong: firebase.firestore.FieldValue.increment(30 - state.score/2),
+              wrong: firebase.firestore.FieldValue.increment(
+                30 - state.score / 2
+              ),
               total: firebase.firestore.FieldValue.increment(30),
-              total_quiz : firebase.firestore.FieldValue.increment(1)
+              total_quiz: firebase.firestore.FieldValue.increment(0.5),
             });
             console.log(docRef.wrong);
           });
@@ -106,6 +109,41 @@ function reducer(state, action) {
         score: state.score,
         attempts: state.attempts,
         show: true,
+      };
+    case "return":
+      firebase
+        .firestore()
+        .collection("registrati")
+        .where("email", "==", state.email)
+        .get()
+        .then((querySnaphot) => {
+          console.log(querySnaphot);
+          querySnaphot.forEach((doc) => {
+            let docRef = firebase
+              .firestore()
+              .collection("registrati")
+              .doc(doc.id);
+            docRef.update({
+              correct_answers: firebase.firestore.FieldValue.increment(
+                state.score / 2
+              ),
+              wrong: firebase.firestore.FieldValue.increment(
+                30 - state.score / 2
+              ),
+              total: firebase.firestore.FieldValue.increment(30),
+              total_quiz: firebase.firestore.FieldValue.increment(0.5),
+            });
+            console.log(docRef.wrong);
+          });
+        });
+      domanda = Math.floor(Math.random() * (Questions.length - 1));
+      return {
+        email: state.email,
+        num: 99,
+        numD: domanda,
+        score: 0,
+        attempts: 0,
+        show: false,
       };
 
     default:
@@ -218,7 +256,9 @@ function Fisiologia(props) {
           </div>
           <div className="terminator"></div>
         </div>
-      ) : (
+      ) :state.num == 99? (
+        <Home></Home>
+      ) :(
         <div className="result-box custom-box">
           <h1>Risultati del quiz</h1>
           <table>
@@ -332,9 +372,15 @@ function Fisiologia(props) {
           >
             Riprova il quiz
           </button>
-          <Link to="/home" type="button" className="bott">
-            Torna alla pagina principale
-          </Link>
+
+          <button
+            type="button"
+            className="bott"
+            onClick={() => dispatch({ type: "return" })}
+          >
+            Home
+          </button>
+
           <button
             type="button"
             className="bott"
