@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/ingquizv2/static/css/main.4a31a064.chunk.css",
-    "main.js": "/ingquizv2/static/js/main.708ed660.chunk.js",
-    "main.js.map": "/ingquizv2/static/js/main.708ed660.chunk.js.map",
+    "main.css": "/ingquizv2/static/css/main.b5f8c67f.chunk.css",
+    "main.js": "/ingquizv2/static/js/main.c02815b4.chunk.js",
+    "main.js.map": "/ingquizv2/static/js/main.c02815b4.chunk.js.map",
     "runtime-main.js": "/ingquizv2/static/js/runtime-main.95e7fedc.js",
     "runtime-main.js.map": "/ingquizv2/static/js/runtime-main.95e7fedc.js.map",
     "static/css/2.2c9f7b29.chunk.css": "/ingquizv2/static/css/2.2c9f7b29.chunk.css",
-    "static/js/2.1fa8abe6.chunk.js": "/ingquizv2/static/js/2.1fa8abe6.chunk.js",
-    "static/js/2.1fa8abe6.chunk.js.map": "/ingquizv2/static/js/2.1fa8abe6.chunk.js.map",
+    "static/js/2.758c98ca.chunk.js": "/ingquizv2/static/js/2.758c98ca.chunk.js",
+    "static/js/2.758c98ca.chunk.js.map": "/ingquizv2/static/js/2.758c98ca.chunk.js.map",
     "index.html": "/ingquizv2/index.html",
     "static/css/2.2c9f7b29.chunk.css.map": "/ingquizv2/static/css/2.2c9f7b29.chunk.css.map",
-    "static/css/main.4a31a064.chunk.css.map": "/ingquizv2/static/css/main.4a31a064.chunk.css.map",
-    "static/js/2.1fa8abe6.chunk.js.LICENSE.txt": "/ingquizv2/static/js/2.1fa8abe6.chunk.js.LICENSE.txt",
+    "static/css/main.b5f8c67f.chunk.css.map": "/ingquizv2/static/css/main.b5f8c67f.chunk.css.map",
+    "static/js/2.758c98ca.chunk.js.LICENSE.txt": "/ingquizv2/static/js/2.758c98ca.chunk.js.LICENSE.txt",
     "static/media/Fisiologia.css": "/ingquizv2/static/media/giusta.e4cf56d3.png"
   },
   "entrypoints": [
     "static/js/runtime-main.95e7fedc.js",
     "static/css/2.2c9f7b29.chunk.css",
-    "static/js/2.1fa8abe6.chunk.js",
-    "static/css/main.4a31a064.chunk.css",
-    "static/js/main.708ed660.chunk.js"
+    "static/js/2.758c98ca.chunk.js",
+    "static/css/main.b5f8c67f.chunk.css",
+    "static/js/main.c02815b4.chunk.js"
   ]
 }
