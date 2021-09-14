@@ -3,29 +3,29 @@ import "./Results.css";
 import firebase from "./base.js";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {useMediaQuery} from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 let el;
 function Results(props) {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   const [score, setScore] = useState(0);
-  const isSmall = useMediaQuery({query: '(max-width: 768px'});
+  const isSmall = useMediaQuery({ query: "(max-width: 768px" });
   useEffect(() => {
     el = document.querySelector(".sum-score");
   }, []);
 
   const ref = firebase.firestore().collection("registrati");
 
-  function getUsers() {
-    setLoading(true);
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => items.push(doc.data()));
-      setUser(items);
-      console.log(user);
-      setLoading(false);
-    });
-  }
+  // function getUsers() {
+  //   setLoading(true);
+  //   ref.onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => items.push(doc.data()));
+  //     setUser(items);
+  //     console.log(user);
+  //     setLoading(false);
+  //   });
+  // }
 
   const UpdateScore = () => {
     return (
@@ -39,17 +39,13 @@ function Results(props) {
             Guarda le tue statistiche
           </Link>
         )}
-
-        <Link to="/home" className="button stats">
-          Ritorna alla home page
-        </Link>
       </div>
     );
   };
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
 
   if (loading) {
     return <div style={{ textAlign: "center" }}>LOADING</div>;
@@ -74,6 +70,18 @@ function Results(props) {
                   <div className="result-option correct">Falso</div>
                 </div>
               )
+            ) : props.history[index] === 0 ? (
+              Questions[value]["TrueOrFalse"] === true ? (
+                <div className="result-option-container">
+                  <div className="result-option wrong">Vero</div>
+                  <div className="result-option">Falso</div>{" "}
+                </div>
+              ) : (
+                <div className="result-option-container">
+                  <div className="result-option">Vero</div>
+                  <div className="result-option wrong">Falso</div>
+                </div>
+              )
             ) : Questions[value]["TrueOrFalse"] === true ? (
               <div className="result-option-container">
                 <div className="result-option">Vero</div>
@@ -96,13 +104,9 @@ function Results(props) {
         >
           Riprova il quiz
         </button>
-        <button
-          type="button"
-          className="button"
-          onClick={() => props.dispatch({ type: "home" })}
-        >
-          Torna alla pagina principale
-        </button>
+        <Link to ='/home' className="button">
+          Torna alla home
+        </Link>
       </div>
       <div className="sum-score">
         <UpdateScore />

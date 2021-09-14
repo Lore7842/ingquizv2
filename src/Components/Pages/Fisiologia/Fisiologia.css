@@ -216,6 +216,12 @@
 .total-wrong,
 .total-attempt,
 .percentage,
-.total-score {
+.total-score,
+.mark {
   float: right;
+}
+
+.mark{
+  background-color: white;
+  background: white;
 }

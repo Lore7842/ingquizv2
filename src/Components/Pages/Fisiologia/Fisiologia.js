@@ -3,10 +3,12 @@ import "./Fisiologia.css";
 import { Questions } from "./Fisioback";
 import { Results } from "../Results/Results";
 import firebase from "../Results/base";
-import { Link } from "react-router-dom";
-import Home from "../Home/Home"
+import { Redirect } from "react-router-dom";
+import Home from "../Home/Home";
 let history = [];
 let historyNum = [];
+let notAnswered = 0;
+let wrong = 0;
 
 const initialState = {
   email: "",
@@ -16,9 +18,21 @@ const initialState = {
   attempts: 0,
   show: false,
 };
+
+let lastAction = { type: "null" };
+
 function reducer(state, action) {
   let selector = document.querySelector(".answers-indicator");
   let domanda;
+  console.log(lastAction.type + " " + action.type)
+  if (lastAction.type === action.type && (action.type === "return" || action.type === "details")) {
+    console.log("Same action: " + action.type);
+    if (action.type === "return")
+      return { ...state, num: 99 };
+    else if (action.type === "details")
+      return { ...state, show: true}
+  }
+  lastAction = action;
   switch (action.type) {
     case "increment":
       console.log(state.email);
@@ -42,6 +56,9 @@ function reducer(state, action) {
         show: false,
       };
     case "home":
+      // aggiornare i dati nel database se riprovo il quiz
+      notAnswered = 0;
+      wrong = 0;
       return {
         email: state.email,
         num: 1,
@@ -51,6 +68,8 @@ function reducer(state, action) {
         show: false,
       };
     case "restart":
+      notAnswered = 0;
+      wrong = 0;
       domanda = Math.floor(Math.random() * (Questions.length - 1));
       return {
         email: state.email,
@@ -64,7 +83,7 @@ function reducer(state, action) {
       for (let i = 0; i < 60; i++) {
         if (history[i] === 1) {
           selector.children.item(i).classList.add("correct");
-        } else {
+        } else if (history[i] === -1) {
           selector.children.item(i).classList.add("wrong");
         }
       }
@@ -77,13 +96,15 @@ function reducer(state, action) {
         show: false,
       };
     case "details":
+      notAnswered = 0;
+      wrong = 0;
       firebase
         .firestore()
         .collection("registrati")
         .where("email", "==", state.email)
         .get()
         .then((querySnaphot) => {
-          console.log(querySnaphot);
+          console.log(querySnaphot.size);
           querySnaphot.forEach((doc) => {
             let docRef = firebase
               .firestore()
@@ -91,49 +112,46 @@ function reducer(state, action) {
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score 
+                state.score
               ),
-              wrong: firebase.firestore.FieldValue.increment(
-                30 - state.score 
-              ),
+              wrong: firebase.firestore.FieldValue.increment(60 - state.score),
               total: firebase.firestore.FieldValue.increment(60),
               total_quiz: firebase.firestore.FieldValue.increment(1),
             });
-            console.log(docRef.wrong);
           });
         });
       return {
         email: state.email,
-        num: state.num,
+        num: 1,
         numD: Math.floor(Math.random() * (Questions.length - 1)),
-        score: state.score,
-        attempts: state.attempts,
+        score: 0,
+        attempts: 0,
         show: true,
       };
     case "return":
+      notAnswered = 0;
+      wrong = 0;
       firebase
         .firestore()
         .collection("registrati")
         .where("email", "==", state.email)
         .get()
         .then((querySnaphot) => {
-          console.log(querySnaphot);
+          console.log(querySnaphot.size);
           querySnaphot.forEach((doc) => {
+            console.log("here");
             let docRef = firebase
               .firestore()
               .collection("registrati")
               .doc(doc.id);
             docRef.update({
               correct_answers: firebase.firestore.FieldValue.increment(
-                state.score 
+                state.score
               ),
-              wrong: firebase.firestore.FieldValue.increment(
-                30 - state.score 
-              ),
+              wrong: firebase.firestore.FieldValue.increment(60 - state.score),
               total: firebase.firestore.FieldValue.increment(60),
               total_quiz: firebase.firestore.FieldValue.increment(1),
             });
-            console.log(docRef.wrong);
           });
         });
       domanda = Math.floor(Math.random() * (Questions.length - 1));
@@ -154,7 +172,10 @@ function reducer(state, action) {
 function Fisiologia(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const currentUser = props.user;
-  const prox = () => {
+  const prox = (index) => {
+    console.log("Punteggio: " + state.score);
+    console.log("Sbagliate: " + wrong);
+    console.log("Non date: " + notAnswered);
     historyNum.push(state.numD);
     for (let i = 0; i < 2; i++) {
       if (
@@ -183,6 +204,12 @@ function Fisiologia(props) {
           .classList.remove("wrong");
       }
     }
+    if (history[index] != 1 && history[index] != -1) {
+      history[index] = 0;
+      console.log(history[index]);
+      console.log(index);
+      notAnswered += 1;
+    }
     dispatch({ type: "increment", email: currentUser.email });
   };
 
@@ -200,9 +227,10 @@ function Fisiologia(props) {
       let el = document.querySelector(".option-container").children;
       el.item(tF).classList.add("wrong");
       history.push(-1);
+      wrong += 1;
     }
     state.attempts = state.attempts + 1;
-    setTimeout(() => prox(), 550);
+    setTimeout(() => prox(index), 550);
   };
 
   return (
@@ -250,15 +278,19 @@ function Fisiologia(props) {
             </div>
           </div>
           <div className="next-question-btn">
-            <button type="button" className="bott" onClick={prox}>
+            <button
+              type="button"
+              className="bott"
+              onClick={() => prox(state.num - 1)}
+            >
               Prossima
             </button>
           </div>
           <div className="terminator"></div>
         </div>
-      ) :state.num == 99? (
-        <Home></Home>
-      ) :(
+      ) : state.num == 99 ? (
+        <Redirect to="/home" />
+      ) : (
         <div className="result-box custom-box">
           <h1>Risultati del quiz</h1>
           <table>
@@ -282,9 +314,15 @@ function Fisiologia(props) {
                 </td>
               </tr>
               <tr>
-                <td>Sbagliate o non date</td>
+                <td>Sbagliate</td>
                 <td>
-                  <span className="total-wrong">{60 - state.score}</span>
+                  <span className="total-wrong">{wrong}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Non date</td>
+                <td>
+                  <span className="total-wrong">{notAnswered}</span>
                 </td>
               </tr>
               <tr>
@@ -299,6 +337,14 @@ function Fisiologia(props) {
                 <td>Punteggio totale</td>
                 <td>
                   <span className="total-score">{state.score}/60</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Voto</td>
+                <td>
+                  <span className="mark">
+                    {((60 - 1.5 * wrong - notAnswered) * 33) / 60}
+                  </span>
                 </td>
               </tr>
             </tbody>
